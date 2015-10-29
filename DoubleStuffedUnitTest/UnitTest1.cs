@@ -9,6 +9,7 @@ namespace DoubleStuffedUnitTest
         [TestMethod]
         public void TestMethod1()
         {
+            Console.WriteLine("Please give me a .dll");
         }
     }
 }
