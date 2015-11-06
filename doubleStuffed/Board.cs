@@ -9,6 +9,11 @@ namespace doubleStuffed
     class Board
     {
         public int[,] Spaces = new int[8, 8];
+        
+        /// <summary>
+        /// Returns a string representation of the current state of Spaces
+        /// </summary>
+        /// <returns></returns>
         public string BoardString()
         {
             string output = "";
@@ -38,6 +43,11 @@ namespace doubleStuffed
             Spaces[4, 3] = 2;
         }
 
+        /// <summary>
+        /// Flips the token found at the designated column and row.
+        /// </summary>
+        /// <param name="col"></param>
+        /// <param name="row"></param>
         public void FlipToken(int col, int row)
         {
             if (Spaces[col, row] == 1)
@@ -46,14 +56,52 @@ namespace doubleStuffed
                 Spaces[col, row] = 1;
         }
 
-        public bool CheckBoard() {return false; }
+        /// <summary>
+        /// Clears the board of valid moves, then checks current state of the board. 
+        /// </summary>
+        /// <returns>If there is a valid move for the current player, return true. Else returns false.</returns>
+        public bool CheckBoard()
+        {
+            return false;
+        }
 
+        /// <summary>
+        /// Checks the validity of placing a token in the selected square.
+        /// </summary>
+        /// <returns>True if valid, false if invalid.</returns>
         public bool CheckSquare() { return false; }
 
+        /// <summary>
+        /// Places the token at the desired valid location and flips all tokens meeting requirements.
+        /// </summary>
         public void CommitMove() { }
 
+        /// <summary>
+        /// Recursively check the tokens in a designated direction until a token of the active player is found. Calls Board.FlipToken(x, y) on the tokens which need to be flipped.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="dirX"></param>
+        /// <param name="dirY"></param>
+        /// <returns></returns>
         public bool FlipCheck(int x, int y, int dirX, int dirY) { return false; }
 
-        public void InitBoard() { }
+        /// <summary>
+        /// Resets current state of the board to the initial layout.
+        /// </summary>
+        public void InitBoard()
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    Spaces[i, j] = 0;
+                }
+            }
+            Spaces[3, 3] = 1;
+            Spaces[4, 4] = 1;
+            Spaces[3, 4] = 2;
+            Spaces[4, 3] = 2;
+        }
     }
 }
