@@ -16,5 +16,15 @@ namespace doubleStuffed
         {
             InitializeComponent();
         }
+
+        private void GameInterface_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
