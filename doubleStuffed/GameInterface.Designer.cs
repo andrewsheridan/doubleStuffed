@@ -78,11 +78,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GameInterface";
-            this.Text = "Form2";
+            this.Text = "Double Sutff! ( ͡° ͜ʖ ͡°)";
             this.Load += new System.EventHandler(this.GameInterface_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
