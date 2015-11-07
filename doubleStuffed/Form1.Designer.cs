@@ -44,12 +44,13 @@
             this.xDirLabel = new System.Windows.Forms.Label();
             this.yDirLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.activePlayerUpDown = new System.Windows.Forms.NumericUpDown();
+            this.checkSquareDirButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.colUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rowUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yDirectionUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xDirectionUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activePlayerUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // outputTextBox
@@ -222,35 +223,46 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "Player:";
             // 
-            // numericUpDown1
+            // activePlayerUpDown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(215, 120);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.activePlayerUpDown.Location = new System.Drawing.Point(215, 120);
+            this.activePlayerUpDown.Maximum = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.activePlayerUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(79, 20);
-            this.numericUpDown1.TabIndex = 16;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.activePlayerUpDown.Name = "activePlayerUpDown";
+            this.activePlayerUpDown.Size = new System.Drawing.Size(79, 20);
+            this.activePlayerUpDown.TabIndex = 16;
+            this.activePlayerUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            // 
+            // checkSquareDirButton
+            // 
+            this.checkSquareDirButton.Location = new System.Drawing.Point(300, 130);
+            this.checkSquareDirButton.Name = "checkSquareDirButton";
+            this.checkSquareDirButton.Size = new System.Drawing.Size(110, 23);
+            this.checkSquareDirButton.TabIndex = 18;
+            this.checkSquareDirButton.Text = "Check Square Dir";
+            this.checkSquareDirButton.UseVisualStyleBackColor = true;
+            this.checkSquareDirButton.Click += new System.EventHandler(this.checkSquareDirButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 189);
+            this.Controls.Add(this.checkSquareDirButton);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.activePlayerUpDown);
             this.Controls.Add(this.yDirLabel);
             this.Controls.Add(this.xDirLabel);
             this.Controls.Add(this.messageTextBox);
@@ -272,7 +284,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rowUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yDirectionUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xDirectionUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activePlayerUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,7 +308,8 @@
         private System.Windows.Forms.Label xDirLabel;
         private System.Windows.Forms.Label yDirLabel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown activePlayerUpDown;
+        private System.Windows.Forms.Button checkSquareDirButton;
     }
 }
 

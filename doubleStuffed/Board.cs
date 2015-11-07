@@ -60,7 +60,7 @@ namespace doubleStuffed
         /// Clears the board of valid moves, then checks current state of the board. 
         /// </summary>
         /// <returns>If there is a valid move for the current player, return true. Else returns false.</returns>
-        public bool CheckBoard()
+        public bool CheckBoard(int activePlayer)
         {
             for (int i = 0; i < 8; i++)
             {
@@ -76,7 +76,7 @@ namespace doubleStuffed
             {
                 for(int j = 0; j < 8; j++)
                 {
-                    if (CheckSquare(i, j) == true)
+                    if (CheckSquare(i, j, activePlayer) == true)
                         existsValidMove = true;
                 }
             }
@@ -88,7 +88,7 @@ namespace doubleStuffed
         /// Checks the validity of placing a token in the selected square.
         /// </summary>
         /// <returns>True if valid, false if invalid.</returns>
-        public bool CheckSquare(int x, int y)
+        public bool CheckSquare(int x, int y, int activePlayer)
         {
             return false;
         }
@@ -102,18 +102,19 @@ namespace doubleStuffed
         /// <param name="dirX"></param>
         /// <param name="dirY"></param>
         /// <returns></returns>
-        public bool CheckSquareDir(int x, int y, int dirX, int dirY)
+        /// 
+        public bool CheckSquareDir(int x, int y, int dirX, int dirY, int activePlayer)
         {
             if (Spaces[x, y] == 0) //this space is empty
                 return false;
-            if (Spaces[x, y] == /*current player*/) //this space owned by current player
+            if (Spaces[x, y] == activePlayer) //this space owned by current player
                 return true;
             if ((x == 0 && dirX == -1) //this space owned by opposition. next space would be out of bounds
                 || (x == 7 && dirX == 1)
                 || (y == 0 && dirY == -1)
                 || (y == 7 && dirY == 1))
                 return false;
-            if (FlipCheck(x + dirX, y + dirY, dirX, dirY))
+            if (FlipCheck(x + dirX, y + dirY, dirX, dirY, activePlayer))
                 return true;
             return false;
         }
@@ -122,7 +123,7 @@ namespace doubleStuffed
         /// <summary>
         /// Places the token at the desired valid location and flips all tokens meeting requirements.
         /// </summary>
-        public void CommitMove(int x, int y)
+        public void CommitMove(int x, int y, int activePlayer)
         {
 
         }
@@ -136,7 +137,7 @@ namespace doubleStuffed
         /// <param name="dirX"></param>
         /// <param name="dirY"></param>
         /// <returns></returns>
-        public bool FlipCheck(int x, int y, int dirX, int dirY)
+        public bool FlipCheck(int x, int y, int dirX, int dirY, int activePlayer)
         {
             return false;
         }

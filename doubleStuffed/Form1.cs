@@ -32,28 +32,45 @@ namespace doubleStuffed
 
         private void flipCheckButton_Click(object sender, EventArgs e)
         {
-            gameBoard.FlipCheck((int)colUpDown.Value, (int)rowUpDown.Value, (int)xDirectionUpDown.Value, (int)yDirectionUpDown.Value);
+            bool output = gameBoard.FlipCheck((int)colUpDown.Value, (int)rowUpDown.Value
+                , (int)xDirectionUpDown.Value, (int)yDirectionUpDown.Value, (int)activePlayerUpDown.Value);
+            if (output == true)
+                messageTextBox.Text = "True";
+            else
+                messageTextBox.Text = "False";
         }
 
         private void checkSquareButton_Click(object sender, EventArgs e)
         {
-            gameBoard.CheckSquare((int)colUpDown.Value, (int)rowUpDown.Value);
+            gameBoard.CheckSquare((int)colUpDown.Value, (int)rowUpDown.Value, (int)activePlayerUpDown.Value);
             outputTextBox.Text = gameBoard.BoardString();
         }
 
         private void commitMoveButton_Click(object sender, EventArgs e)
         {
-            gameBoard.CommitMove((int)colUpDown.Value, (int)rowUpDown.Value);
+            gameBoard.CommitMove((int)colUpDown.Value, (int)rowUpDown.Value, (int)activePlayerUpDown.Value);
             outputTextBox.Text = gameBoard.BoardString();
         }
 
         private void checkBoardButton_Click(object sender, EventArgs e)
         {
-            bool existsValidMove = gameBoard.CheckBoard();
+            bool existsValidMove = gameBoard.CheckBoard((int)activePlayerUpDown.Value);
             if (existsValidMove == true)
                 messageTextBox.Text = "True";
             else
                 messageTextBox.Text = "False";
+            outputTextBox.Text = gameBoard.BoardString();
+        }
+
+        private void checkSquareDirButton_Click(object sender, EventArgs e)
+        {
+            bool output = gameBoard.CheckSquareDir((int)colUpDown.Value, (int)rowUpDown.Value
+                , (int)xDirectionUpDown.Value, (int)yDirectionUpDown.Value, (int)activePlayerUpDown.Value);
+            if (output == true)
+                messageTextBox.Text = "True";
+            else
+                messageTextBox.Text = "False";
+            outputTextBox.Text = gameBoard.BoardString();
         }
     }
 }
