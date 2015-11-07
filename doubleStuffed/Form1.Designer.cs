@@ -43,10 +43,13 @@
             this.messageTextBox = new System.Windows.Forms.TextBox();
             this.xDirLabel = new System.Windows.Forms.Label();
             this.yDirLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.colUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rowUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yDirectionUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xDirectionUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // outputTextBox
@@ -56,11 +59,12 @@
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.Size = new System.Drawing.Size(145, 136);
             this.outputTextBox.TabIndex = 0;
+            this.outputTextBox.Text = "OutputBox";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(164, 16);
+            this.label1.Location = new System.Drawing.Point(181, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 2;
@@ -68,7 +72,7 @@
             // 
             // colUpDown
             // 
-            this.colUpDown.Location = new System.Drawing.Point(198, 14);
+            this.colUpDown.Location = new System.Drawing.Point(215, 14);
             this.colUpDown.Maximum = new decimal(new int[] {
             7,
             0,
@@ -80,7 +84,7 @@
             // 
             // rowUpDown
             // 
-            this.rowUpDown.Location = new System.Drawing.Point(198, 40);
+            this.rowUpDown.Location = new System.Drawing.Point(215, 40);
             this.rowUpDown.Maximum = new decimal(new int[] {
             7,
             0,
@@ -93,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(164, 42);
+            this.label2.Location = new System.Drawing.Point(177, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 4;
@@ -101,7 +105,7 @@
             // 
             // flipTokenButton
             // 
-            this.flipTokenButton.Location = new System.Drawing.Point(167, 66);
+            this.flipTokenButton.Location = new System.Drawing.Point(300, 14);
             this.flipTokenButton.Name = "flipTokenButton";
             this.flipTokenButton.Size = new System.Drawing.Size(110, 23);
             this.flipTokenButton.TabIndex = 6;
@@ -111,7 +115,7 @@
             // 
             // commitMoveButton
             // 
-            this.commitMoveButton.Location = new System.Drawing.Point(167, 124);
+            this.commitMoveButton.Location = new System.Drawing.Point(300, 101);
             this.commitMoveButton.Name = "commitMoveButton";
             this.commitMoveButton.Size = new System.Drawing.Size(110, 23);
             this.commitMoveButton.TabIndex = 7;
@@ -121,7 +125,7 @@
             // 
             // flipCheckButton
             // 
-            this.flipCheckButton.Location = new System.Drawing.Point(300, 66);
+            this.flipCheckButton.Location = new System.Drawing.Point(300, 43);
             this.flipCheckButton.Name = "flipCheckButton";
             this.flipCheckButton.Size = new System.Drawing.Size(110, 23);
             this.flipCheckButton.TabIndex = 8;
@@ -131,7 +135,7 @@
             // 
             // checkSquareButton
             // 
-            this.checkSquareButton.Location = new System.Drawing.Point(167, 95);
+            this.checkSquareButton.Location = new System.Drawing.Point(300, 72);
             this.checkSquareButton.Name = "checkSquareButton";
             this.checkSquareButton.Size = new System.Drawing.Size(110, 23);
             this.checkSquareButton.TabIndex = 9;
@@ -151,7 +155,7 @@
             // 
             // yDirectionUpDown
             // 
-            this.yDirectionUpDown.Location = new System.Drawing.Point(331, 39);
+            this.yDirectionUpDown.Location = new System.Drawing.Point(215, 94);
             this.yDirectionUpDown.Maximum = new decimal(new int[] {
             1,
             0,
@@ -168,7 +172,7 @@
             // 
             // xDirectionUpDown
             // 
-            this.xDirectionUpDown.Location = new System.Drawing.Point(331, 13);
+            this.xDirectionUpDown.Location = new System.Drawing.Point(215, 68);
             this.xDirectionUpDown.Maximum = new decimal(new int[] {
             1,
             0,
@@ -189,11 +193,12 @@
             this.messageTextBox.Name = "messageTextBox";
             this.messageTextBox.Size = new System.Drawing.Size(245, 20);
             this.messageTextBox.TabIndex = 13;
+            this.messageTextBox.Text = "MessageBox";
             // 
             // xDirLabel
             // 
             this.xDirLabel.AutoSize = true;
-            this.xDirLabel.Location = new System.Drawing.Point(297, 16);
+            this.xDirLabel.Location = new System.Drawing.Point(181, 70);
             this.xDirLabel.Name = "xDirLabel";
             this.xDirLabel.Size = new System.Drawing.Size(28, 13);
             this.xDirLabel.TabIndex = 14;
@@ -202,17 +207,50 @@
             // yDirLabel
             // 
             this.yDirLabel.AutoSize = true;
-            this.yDirLabel.Location = new System.Drawing.Point(297, 39);
+            this.yDirLabel.Location = new System.Drawing.Point(181, 96);
             this.yDirLabel.Name = "yDirLabel";
             this.yDirLabel.Size = new System.Drawing.Size(28, 13);
             this.yDirLabel.TabIndex = 15;
             this.yDirLabel.Text = "yDir:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(170, 122);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Player:";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(215, 120);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(79, 20);
+            this.numericUpDown1.TabIndex = 16;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 189);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.yDirLabel);
             this.Controls.Add(this.xDirLabel);
             this.Controls.Add(this.messageTextBox);
@@ -234,6 +272,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rowUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yDirectionUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xDirectionUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +295,8 @@
         private System.Windows.Forms.TextBox messageTextBox;
         private System.Windows.Forms.Label xDirLabel;
         private System.Windows.Forms.Label yDirLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 
