@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameInterface.Designer.cs">
+      <DependentUpon>GameInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

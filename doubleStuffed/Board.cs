@@ -62,20 +62,47 @@ namespace doubleStuffed
         /// <returns>If there is a valid move for the current player, return true. Else returns false.</returns>
         public bool CheckBoard()
         {
-            return false;
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (Spaces[i, j] == 3)
+                        Spaces[i, j] = 0;
+                }
+            }
+
+            bool existsValidMove = false;
+            for(int i = 0; i < 8; i++)
+            {
+                for(int j = 0; j < 8; j++)
+                {
+                    if (CheckSquare(i, j) == true)
+                        existsValidMove = true;
+                }
+            }
+            return existsValidMove;
         }
 
+        //TO-DO
         /// <summary>
         /// Checks the validity of placing a token in the selected square.
         /// </summary>
         /// <returns>True if valid, false if invalid.</returns>
-        public bool CheckSquare() { return false; }
+        public bool CheckSquare(int x, int y)
+        {
+            return false;
+        }
 
+        //TO-DO
         /// <summary>
         /// Places the token at the desired valid location and flips all tokens meeting requirements.
         /// </summary>
-        public void CommitMove() { }
+        public void CommitMove(int x, int y)
+        {
 
+        }
+
+        //TO-DO
         /// <summary>
         /// Recursively check the tokens in a designated direction until a token of the active player is found. Calls Board.FlipToken(x, y) on the tokens which need to be flipped.
         /// </summary>
@@ -84,7 +111,10 @@ namespace doubleStuffed
         /// <param name="dirX"></param>
         /// <param name="dirY"></param>
         /// <returns></returns>
-        public bool FlipCheck(int x, int y, int dirX, int dirY) { return false; }
+        public bool FlipCheck(int x, int y, int dirX, int dirY)
+        {
+            return false;
+        }
 
         /// <summary>
         /// Resets current state of the board to the initial layout.
