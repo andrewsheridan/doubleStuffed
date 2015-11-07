@@ -95,6 +95,31 @@ namespace doubleStuffed
 
         //TO-DO
         /// <summary>
+        /// works the same as FlipCheck(), except doesn't call flipToken() function.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="dirX"></param>
+        /// <param name="dirY"></param>
+        /// <returns></returns>
+        public bool CheckSquareDir(int x, int y, int dirX, int dirY)
+        {
+            if (Spaces[x, y] == 0) //this space is empty
+                return false;
+            if (Spaces[x, y] == /*current player*/) //this space owned by current player
+                return true;
+            if ((x == 0 && dirX == -1) //this space owned by opposition. next space would be out of bounds
+                || (x == 7 && dirX == 1)
+                || (y == 0 && dirY == -1)
+                || (y == 7 && dirY == 1))
+                return false;
+            if (FlipCheck(x + dirX, y + dirY, dirX, dirY))
+                return true;
+            return false;
+        }
+
+        //TO-DO
+        /// <summary>
         /// Places the token at the desired valid location and flips all tokens meeting requirements.
         /// </summary>
         public void CommitMove(int x, int y)
