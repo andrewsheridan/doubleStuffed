@@ -90,6 +90,15 @@ namespace doubleStuffed
         /// <returns>True if valid, false if invalid.</returns>
         public bool CheckSquare(int x, int y, int activePlayer)
         {
+            CheckSquareDir(x, y, -1, -1, activePlayer); //up-left
+            CheckSquareDir(x, y, 0, -1, activePlayer); //up
+            CheckSquareDir(x, y, 1, -1, activePlayer); //up-right
+            CheckSquareDir(x, y, -1, 0, activePlayer); //left
+            CheckSquareDir(x, y, 1, 0, activePlayer); //right
+            CheckSquareDir(x, y, -1, 1, activePlayer); //down-left
+            CheckSquareDir(x, y, 0, 1, activePlayer); //down
+            CheckSquareDir(x, y, 1, 1, activePlayer); //down-right
+
             return false;
         }
 
