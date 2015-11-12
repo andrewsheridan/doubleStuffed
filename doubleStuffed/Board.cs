@@ -119,13 +119,21 @@ namespace doubleStuffed
             return false;
         }
 
-        //TO-DO
+        
         /// <summary>
         /// Places the token at the desired valid location and flips all tokens meeting requirements.
         /// </summary>
         public void CommitMove(int x, int y, int activePlayer)
         {
-
+            FlipCheck(x, y, -1, -1, activePlayer); //up-left
+            FlipCheck(x, y, 0, -1, activePlayer); //up
+            FlipCheck(x, y, 1, -1, activePlayer); //up-right
+            FlipCheck(x, y, -1, 0,activePlayer); //left
+            FlipCheck(x, y, 1, 0, activePlayer); //right
+            FlipCheck(x, y, -1, 1, activePlayer); //down-left
+            FlipCheck(x, y, 0, 1, activePlayer); //down
+            FlipCheck(x, y, 1, 1, activePlayer); //down-right
+            
         }
 
         //TO-DO
