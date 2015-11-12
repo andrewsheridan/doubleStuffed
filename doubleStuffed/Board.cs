@@ -114,7 +114,7 @@ namespace doubleStuffed
                 || (y == 0 && dirY == -1)
                 || (y == 7 && dirY == 1))
                 return false;
-            if (FlipCheck(x + dirX, y + dirY, dirX, dirY, activePlayer))
+            if (CheckSquareDir(x + dirX, y + dirY, dirX, dirY, activePlayer))
                 return true;
             return false;
         }
