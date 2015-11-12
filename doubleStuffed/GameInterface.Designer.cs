@@ -28,76 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameInterface));
+            this.newGameButton = new System.Windows.Forms.PictureBox();
+            this.loadGameButton = new System.Windows.Forms.PictureBox();
+            this.helpButton = new System.Windows.Forms.PictureBox();
+            this.quitButton = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.newGameButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadGameButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.helpButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quitButton)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // newGameButton
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.newGameButton.BackColor = System.Drawing.Color.Transparent;
+            this.newGameButton.Image = global::doubleStuffed.Properties.Resources.new_game_black;
+            this.newGameButton.Location = new System.Drawing.Point(285, 200);
+            this.newGameButton.Name = "newGameButton";
+            this.newGameButton.Size = new System.Drawing.Size(230, 40);
+            this.newGameButton.TabIndex = 0;
+            this.newGameButton.TabStop = false;
+            this.newGameButton.MouseEnter += new System.EventHandler(this.newGameButton_MouseEnter);
+            this.newGameButton.MouseLeave += new System.EventHandler(this.newGameButton_MouseLeave);
             // 
-            // fileToolStripMenuItem
+            // loadGameButton
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.quitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.loadGameButton.BackColor = System.Drawing.Color.Transparent;
+            this.loadGameButton.Image = global::doubleStuffed.Properties.Resources.load_game_black;
+            this.loadGameButton.Location = new System.Drawing.Point(275, 280);
+            this.loadGameButton.Name = "loadGameButton";
+            this.loadGameButton.Size = new System.Drawing.Size(250, 40);
+            this.loadGameButton.TabIndex = 1;
+            this.loadGameButton.TabStop = false;
+            this.loadGameButton.MouseEnter += new System.EventHandler(this.loadGameButton_MouseEnter);
+            this.loadGameButton.MouseLeave += new System.EventHandler(this.loadGameButton_MouseLeave);
             // 
-            // saveToolStripMenuItem
+            // helpButton
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.helpButton.BackColor = System.Drawing.Color.Transparent;
+            this.helpButton.Image = global::doubleStuffed.Properties.Resources.help_black;
+            this.helpButton.Location = new System.Drawing.Point(285, 360);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(230, 40);
+            this.helpButton.TabIndex = 2;
+            this.helpButton.TabStop = false;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            this.helpButton.MouseEnter += new System.EventHandler(this.helpButton_MouseEnter);
+            this.helpButton.MouseLeave += new System.EventHandler(this.helpButton_MouseLeave);
             // 
-            // helpToolStripMenuItem
+            // quitButton
             // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // quitToolStripMenuItem
-            // 
-            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitButton.BackColor = System.Drawing.Color.Transparent;
+            this.quitButton.Image = global::doubleStuffed.Properties.Resources.quit_black;
+            this.quitButton.Location = new System.Drawing.Point(285, 440);
+            this.quitButton.Name = "quitButton";
+            this.quitButton.Size = new System.Drawing.Size(230, 40);
+            this.quitButton.TabIndex = 3;
+            this.quitButton.TabStop = false;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
+            this.quitButton.MouseEnter += new System.EventHandler(this.quitButton_MouseEnter);
+            this.quitButton.MouseLeave += new System.EventHandler(this.quitButton_MouseLeave);
             // 
             // GameInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.BackgroundImage = global::doubleStuffed.Properties.Resources.background_image_menu;
+            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.quitButton);
+            this.Controls.Add(this.helpButton);
+            this.Controls.Add(this.loadGameButton);
+            this.Controls.Add(this.newGameButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameInterface";
-            this.Text = "Double Sutff! ( ͡° ͜ʖ ͡°)";
-            this.Load += new System.EventHandler(this.GameInterface_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Double Stuff";
+            ((System.ComponentModel.ISupportInitialize)(this.newGameButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadGameButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.helpButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quitButton)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private System.Windows.Forms.PictureBox newGameButton;
+        private System.Windows.Forms.PictureBox loadGameButton;
+        private System.Windows.Forms.PictureBox helpButton;
+        private System.Windows.Forms.PictureBox quitButton;
     }
 }
