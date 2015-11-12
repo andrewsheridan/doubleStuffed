@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "doubleStuffed", "doubleStuf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoubleStuffedUnitTest", "DoubleStuffedUnitTest\DoubleStuffedUnitTest.csproj", "{1FFE6416-7130-4A91-9A72-1627366A5064}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "doubleStuffedTests", "doubleStuffedTests\doubleStuffedTests.csproj", "{DDE87AE3-ECA8-4A1F-AC03-25480332945A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1FFE6416-7130-4A91-9A72-1627366A5064}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FFE6416-7130-4A91-9A72-1627366A5064}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FFE6416-7130-4A91-9A72-1627366A5064}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE87AE3-ECA8-4A1F-AC03-25480332945A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE87AE3-ECA8-4A1F-AC03-25480332945A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE87AE3-ECA8-4A1F-AC03-25480332945A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE87AE3-ECA8-4A1F-AC03-25480332945A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
