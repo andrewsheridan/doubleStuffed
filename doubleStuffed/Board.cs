@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace doubleStuffed
 {
-    public class Board
+    class Board
     {
         public int[,] Spaces = new int[8, 8];
         
@@ -114,7 +114,7 @@ namespace doubleStuffed
                 || (y == 0 && dirY == -1)
                 || (y == 7 && dirY == 1))
                 return false;
-            if (CheckSquareDir(x + dirX, y + dirY, dirX, dirY, activePlayer))
+            if (FlipCheck(x + dirX, y + dirY, dirX, dirY, activePlayer))
                 return true;
             return false;
         }
@@ -139,29 +139,7 @@ namespace doubleStuffed
         /// <returns></returns>
         public bool FlipCheck(int x, int y, int dirX, int dirY, int activePlayer)
         {
-            if (Spaces[x, y] == 0) //Space is empty
-            {
-                return false;
-            }
-
-            if (Spaces[x, y] == activePlayer) //Space contains token owned by active player
-            {
-                return true;
-            }
-
-            if ((x == 0 && dirX == -1) || (x == 7 && dirX == 1) || (y == 0 && dirY == -1) || (y == 7 && dirY == 1))  //checks for edges of board
-            {
-                return false;
-            }
-
-            if (FlipCheck(x + dirX, y + dirY, dirX, dirY, activePlayer)) //calls itself 
-            {
-                FlipToken(x, y);
-                return true;
-            }
-        
             return false;
-        
         }
 
         /// <summary>
