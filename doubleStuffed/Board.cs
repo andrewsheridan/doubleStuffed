@@ -93,7 +93,7 @@ namespace doubleStuffed
         /// <returns>True if valid, false if invalid.</returns>
         public bool CheckSquare(int x, int y, int activePlayer)
         {
-            //All spaces except left edge
+            //All spaces except top row
             if (x > 0)
             {
                 //All spaces except top-left corner
@@ -101,43 +101,43 @@ namespace doubleStuffed
                     if ((Spaces[x - 1, y - 1] != activePlayer) && CheckSquareDir(x, y, -1, -1, activePlayer)) //up-left
                         return true;
 
-                //All spaces except left edge
-                if ((Spaces[x - 1, y] != activePlayer) && CheckSquareDir(x, y, -1, 0, activePlayer)) //left
+                //All spaces except top row
+                if ((Spaces[x - 1, y] != activePlayer) && CheckSquareDir(x, y, -1, 0, activePlayer)) //up
                     return true;
 
-                //All spaces except bottom-left corner
+                //All spaces except top-right corner
                 if (y < 7)
-                    if ((Spaces[x - 1, y + 1] != activePlayer) && CheckSquareDir(x, y, -1, 1, activePlayer)) //down-left
+                    if ((Spaces[x - 1, y + 1] != activePlayer) && CheckSquareDir(x, y, -1, 1, activePlayer)) //up-right
                         return true;
             }
 
-            //All spaces except right edge
+            //All spaces except left column
+            if (y > 0)
+                if ((Spaces[x, y - 1] != activePlayer) && CheckSquareDir(x, y, 0, -1, activePlayer)) //left
+                    return true;
+
+            //All spaces except right column
+            if (y < 7)
+                if ((Spaces[x, y + 1] != activePlayer) && CheckSquareDir(x, y, 0, 1, activePlayer)) //right
+                    return true;
+
+            //All spaces except bottom row
             if (x < 7)
             {
-                //All spaces except top-right corner
+                //All spaces except bottom-left corner
                 if (y > 0)
-                    if ((Spaces[x + 1, y - 1] != activePlayer) && CheckSquareDir(x, y, 1, -1, activePlayer)) //up-right
+                    if ((Spaces[x + 1, y - 1] != activePlayer) && CheckSquareDir(x, y, 1, -1, activePlayer)) //down-left
                         return true;
 
-                //All spaces except right edge
-                if ((Spaces[x + 1, y] != activePlayer) && CheckSquareDir(x, y, 1, 0, activePlayer)) //right
+                //All spaces except bottom row
+                if ((Spaces[x + 1, y] != activePlayer) && CheckSquareDir(x, y, 1, 0, activePlayer)) //down
                     return true;
 
                 //All spaces except bottom-right corner
                 if (y < 7)
-                    if ((Spaces[x + 1, y] != activePlayer) && CheckSquareDir(x, y, 1, 1, activePlayer)) //down-right
+                    if ((Spaces[x + 1, y + 1] != activePlayer) && CheckSquareDir(x, y, 1, 1, activePlayer)) //down-right
                         return true;
             }
-
-            //All spaces except top edge
-            if (y > 0)
-                if ((Spaces[x, y - 1] != activePlayer) && CheckSquareDir(x, y, 0, -1, activePlayer)) //up
-                    return true;
-
-            //All spaces except bottom edge
-            if (y < 7)
-                if ((Spaces[x, y + 1] != activePlayer) && CheckSquareDir(x, y, 0, 1, activePlayer)) //down
-                    return true;
 
             return false;
         }
@@ -174,43 +174,43 @@ namespace doubleStuffed
         /// </summary>
         public void CommitMove(int x, int y, int activePlayer)
         {
-            //All spaces except left edge
-                //if (y > 0): All spaces except top-left corner
-                //Next Line : All spaces except left edge
-                //if (y < 7): All spaces except bottom-left corner
+            //All spaces except top row
             if (x > 0)
             {
+                //All spaces except top-left corner
                 if (y > 0)
                     FlipCheck(x, y, -1, -1, activePlayer); //up-left
 
-                FlipCheck(x, y, -1, 0, activePlayer); //left
+                //All spaces except top row
+                FlipCheck(x, y, -1, 0, activePlayer); //up
 
+                //All spaces except top-right corner
                 if (y < 7)
-                    FlipCheck(x, y, -1, 1, activePlayer);//down-left
+                    FlipCheck(x, y, -1, 1, activePlayer);//up-right
             }
 
-            //All spaces except right edge
-                //if (y > 0): All spaces except top-right corner
-                //Next Line : All spaces except right edge
-                //if (y < 7): All spaces except bottom-right corner
+            //All spaces except left column
+            if (y > 0)
+                FlipCheck(x, y, 0, -1, activePlayer); //left
+
+            //All spaces except right column
+            if (y < 7)
+                FlipCheck(x, y, 0, 1, activePlayer); //right
+
+            //All spaces except bottom row
             if (x < 7)
             {
+                //All spaces except bottom-left corner
                 if (y > 0)
-                    FlipCheck(x, y, 1, -1, activePlayer); //up-right
+                    FlipCheck(x, y, 1, -1, activePlayer); //down-left
 
-                FlipCheck(x, y, 1, 0, activePlayer); //right
+                //All spaces except bottom row
+                FlipCheck(x, y, 1, 0, activePlayer); //down
 
+                //All spaces except bottom-right corner
                 if (y < 7)
                     FlipCheck(x, y, 1, 1, activePlayer); //down-right
             }
-
-            //All spaces except top edge
-            if (y > 0)
-                FlipCheck(x, y, 0, -1, activePlayer); //up
-
-            //All spaces except bottom edge
-            if (y < 7)
-                FlipCheck(x, y, 0, 1, activePlayer); //down
         }
 
         //TO-DO
