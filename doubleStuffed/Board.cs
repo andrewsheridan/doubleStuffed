@@ -84,7 +84,7 @@ namespace doubleStuffed
                 {
                     if (Spaces[i, j] == 0) //if the space is owned, will not call anything
                     {
-                        if (CheckSquare(i, j, activePlayer) == true)
+                        if (CheckSquare(i, j, activePlayer))
                         {
                             Spaces[i, j] = 3;
                             existsValidMove = true;
@@ -108,14 +108,14 @@ namespace doubleStuffed
                 //All spaces except top-left corner
                 if (y > 0)
                 {
-                    if ((Spaces[x - 1, y - 1] != activePlayer) && CheckSquareDir(x, y, -1, -1, activePlayer)) //up-left
+                    if ((Spaces[x - 1, y - 1] != activePlayer) && CheckSquareDir(x - 1, y - 1, -1, -1, activePlayer)) //up-left
                     {
                         return true;
                     }
                 }
 
                 //All spaces except leftmost column
-                if ((Spaces[x - 1, y] != activePlayer) && CheckSquareDir(x, y, -1, 0, activePlayer)) //left
+                if ((Spaces[x - 1, y] != activePlayer) && CheckSquareDir(x - 1, y, -1, 0, activePlayer)) //left
                 {
                     return true;
                 }
@@ -123,7 +123,7 @@ namespace doubleStuffed
                 //All spaces except bottom-left corner
                 if (y < 7)
                 {
-                    if ((Spaces[x - 1, y + 1] != activePlayer) && CheckSquareDir(x, y, -1, 1, activePlayer)) //down-left
+                    if ((Spaces[x - 1, y + 1] != activePlayer) && CheckSquareDir(x - 1, y + 1, -1, 1, activePlayer)) //down-left
                     {
                         return true;
                     }
@@ -133,7 +133,7 @@ namespace doubleStuffed
             //All spaces except top row
             if (y > 0)
             {
-                if ((Spaces[x, y - 1] != activePlayer) && CheckSquareDir(x, y, 0, -1, activePlayer)) //up
+                if ((Spaces[x, y - 1] != activePlayer) && CheckSquareDir(x, y - 1, 0, -1, activePlayer)) //up
                 {
                     return true;
                 }
@@ -142,7 +142,7 @@ namespace doubleStuffed
             //All spaces except bottom row
             if (y < 7)
             {
-                if ((Spaces[x, y + 1] != activePlayer) && CheckSquareDir(x, y, 0, 1, activePlayer)) //down
+                if ((Spaces[x, y + 1] != activePlayer) && CheckSquareDir(x, y + 1, 0, 1, activePlayer)) //down
                 {
                     return true;
                 }
@@ -154,14 +154,14 @@ namespace doubleStuffed
                 //All spaces except top-right corner
                 if (y > 0)
                 {
-                    if ((Spaces[x + 1, y - 1] != activePlayer) && CheckSquareDir(x, y, 1, -1, activePlayer)) //up-right
+                    if ((Spaces[x + 1, y - 1] != activePlayer) && CheckSquareDir(x + 1, y - 1, 1, -1, activePlayer)) //up-right
                     {
                         return true;
                     }
                 }
 
                 //All spaces except rightmost column
-                if ((Spaces[x + 1, y] != activePlayer) && CheckSquareDir(x, y, 1, 0, activePlayer)) //right
+                if ((Spaces[x + 1, y] != activePlayer) && CheckSquareDir(x + 1, y, 1, 0, activePlayer)) //right
                 {
                     return true;
                 }
@@ -169,7 +169,7 @@ namespace doubleStuffed
                 //All spaces except bottom-right corner
                 if (y < 7)
                 {
-                    if ((Spaces[x + 1, y + 1] != activePlayer) && CheckSquareDir(x, y, 1, 1, activePlayer)) //down-right
+                    if ((Spaces[x + 1, y + 1] != activePlayer) && CheckSquareDir(x + 1, y + 1, 1, 1, activePlayer)) //down-right
                     {
                         return true;
                     }
@@ -191,7 +191,7 @@ namespace doubleStuffed
         /// 
         public bool CheckSquareDir(int x, int y, int dirX, int dirY, int activePlayer)
         {
-            if (Spaces[x, y] == 0) //this space is empty -> invalid
+            if ((Spaces[x, y] == 0) || (Spaces[x, y] == 3)) //this space is empty -> invalid
             {
                 return false;
             }
@@ -232,14 +232,14 @@ namespace doubleStuffed
                     /*
                     // TO-DO: use returned value.
                     */
-                    dummyBool = FlipCheck(x, y, -1, -1, activePlayer); //up-left
+                    dummyBool = FlipCheck(x - 1, y - 1, -1, -1, activePlayer); //up-left
                 }
 
                 //All spaces except leftmost column
                 /*
                 // TO-DO: use returned value.
                 */
-                dummyBool = FlipCheck(x, y, -1, 0, activePlayer); //left
+                dummyBool = FlipCheck(x - 1, y, -1, 0, activePlayer); //left
 
                 //All spaces except bottom-left corner
                 if (y < 7)
@@ -247,7 +247,7 @@ namespace doubleStuffed
                     /*
                     // TO-DO: use returned value.
                     */
-                    dummyBool = FlipCheck(x, y, -1, 1, activePlayer);//down-left
+                    dummyBool = FlipCheck(x - 1, y + 1, -1, 1, activePlayer);//down-left
                 }
             }
 
@@ -257,7 +257,7 @@ namespace doubleStuffed
                 /*
                 // TO-DO: use returned value.
                 */
-                dummyBool = FlipCheck(x, y, 0, -1, activePlayer); //up
+                dummyBool = FlipCheck(x, y - 1, 0, -1, activePlayer); //up
             }
 
             //All spaces except bottom row
@@ -266,7 +266,7 @@ namespace doubleStuffed
                 /*
                 // TO-DO: use returned value.
                 */
-                dummyBool = FlipCheck(x, y, 0, 1, activePlayer); //down
+                dummyBool = FlipCheck(x, y + 1, 0, 1, activePlayer); //down
             }
 
             //All spaces except rightmost column
@@ -278,14 +278,14 @@ namespace doubleStuffed
                     /*
                     // TO-DO: use returned value.
                     */
-                    dummyBool = FlipCheck(x, y, 1, -1, activePlayer); //up-right
+                    dummyBool = FlipCheck(x + 1, y - 1, 1, -1, activePlayer); //up-right
                 }
 
                 //All spaces except rightmost column
                 /*
                 // TO-DO: use returned value.
                 */
-                dummyBool = FlipCheck(x, y, 1, 0, activePlayer); //right
+                dummyBool = FlipCheck(x + 1, y, 1, 0, activePlayer); //right
 
                 //All spaces except bottom-right corner
                 if (y < 7)
@@ -293,7 +293,7 @@ namespace doubleStuffed
                     /*
                     // TO-DO: use returned value.
                     */
-                    dummyBool = FlipCheck(x, y, 1, 1, activePlayer); //down-right
+                    dummyBool = FlipCheck(x + 1, y + 1, 1, 1, activePlayer); //down-right
                 }
             }
         }
@@ -309,7 +309,7 @@ namespace doubleStuffed
         /// <returns>True if tokens in path should be flipped. False if tokens in path should NOT be flipped.</returns>
         public bool FlipCheck(int x, int y, int dirX, int dirY, int activePlayer)
         {
-            if (Spaces[x, y] == 0) //Space is empty
+            if ((Spaces[x, y] == 0) || (Spaces[x, y] == 3)) //Space is empty
             {
                 return false;
             }
