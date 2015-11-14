@@ -51,9 +51,13 @@ namespace doubleStuffed
         public void FlipToken(int col, int row)
         {
             if (Spaces[col, row] == 1)
+            {
                 Spaces[col, row] = 2;
-            else if(Spaces[col, row] ==2)
+            }
+            else if (Spaces[col, row] == 2)
+            {
                 Spaces[col, row] = 1;
+            }
         }
 
         /// <summary>
@@ -101,45 +105,73 @@ namespace doubleStuffed
             {
                 //All spaces except top-left corner
                 if (y > 0)
+                {
                     if ((Spaces[x - 1, y - 1] != activePlayer) && CheckSquareDir(x, y, -1, -1, activePlayer)) //up-left
+                    {
                         return true;
+                    }
+                }
 
                 //All spaces except top row
                 if ((Spaces[x - 1, y] != activePlayer) && CheckSquareDir(x, y, -1, 0, activePlayer)) //up
+                {
                     return true;
+                }
 
                 //All spaces except top-right corner
                 if (y < 7)
+                {
                     if ((Spaces[x - 1, y + 1] != activePlayer) && CheckSquareDir(x, y, -1, 1, activePlayer)) //up-right
+                    {
                         return true;
+                    }
+                }
             }
 
             //All spaces except left column
             if (y > 0)
+            {
                 if ((Spaces[x, y - 1] != activePlayer) && CheckSquareDir(x, y, 0, -1, activePlayer)) //left
+                {
                     return true;
+                }
+            }
 
             //All spaces except right column
             if (y < 7)
+            {
                 if ((Spaces[x, y + 1] != activePlayer) && CheckSquareDir(x, y, 0, 1, activePlayer)) //right
+                {
                     return true;
+                }
+            }
 
             //All spaces except bottom row
             if (x < 7)
             {
                 //All spaces except bottom-left corner
                 if (y > 0)
+                {
                     if ((Spaces[x + 1, y - 1] != activePlayer) && CheckSquareDir(x, y, 1, -1, activePlayer)) //down-left
+                    {
                         return true;
+                    }
+                }
 
                 //All spaces except bottom row
                 if ((Spaces[x + 1, y] != activePlayer) && CheckSquareDir(x, y, 1, 0, activePlayer)) //down
+                {
                     return true;
+                }
 
                 //All spaces except bottom-right corner
                 if (y < 7)
+                {
                     if ((Spaces[x + 1, y + 1] != activePlayer) && CheckSquareDir(x, y, 1, 1, activePlayer)) //down-right
+                    {
                         return true;
+                    }
+                }
             }
 
             return false;
@@ -157,17 +189,26 @@ namespace doubleStuffed
         /// 
         public bool CheckSquareDir(int x, int y, int dirX, int dirY, int activePlayer)
         {
-            if (Spaces[x, y] == 0) //this space is empty
+            if (Spaces[x, y] == 0) //this space is empty -> invalid
+            {
                 return false;
-            if (Spaces[x, y] == activePlayer) //this space owned by current player
+            }
+            if (Spaces[x, y] == activePlayer) //this space owned by current player -> valid
+            {
                 return true;
-            if ((x == 0 && dirX == -1) //this space owned by opposition. next space would be out of bounds
+            }
+            if ((x == 0 && dirX == -1) //this space owned by opposition. next space would be out of bounds -> invalid
                 || (x == 7 && dirX == 1)
                 || (y == 0 && dirY == -1)
                 || (y == 7 && dirY == 1))
+            {
                 return false;
-            if (CheckSquareDir(x + dirX, y + dirY, dirX, dirY, activePlayer))
+            }
+            if (CheckSquareDir(x + dirX, y + dirY, dirX, dirY, activePlayer)) //this space owned by opposition. if next space returns true -> valid
+            {
                 return true;
+            }
+
             return false;
         }
 
@@ -177,42 +218,79 @@ namespace doubleStuffed
         /// </summary>
         public void CommitMove(int x, int y, int activePlayer)
         {
+            bool dummyBool = false;
             //All spaces except top row
             if (x > 0)
             {
                 //All spaces except top-left corner
                 if (y > 0)
-                    FlipCheck(x, y, -1, -1, activePlayer); //up-left
+                {
+                    /*
+                    // TO-DO: use returned value.
+                    */
+                    dummyBool = FlipCheck(x, y, -1, -1, activePlayer); //up-left
+                }
 
                 //All spaces except top row
-                FlipCheck(x, y, -1, 0, activePlayer); //up
+                /*
+                // TO-DO: use returned value.
+                */
+                dummyBool = FlipCheck(x, y, -1, 0, activePlayer); //up
 
                 //All spaces except top-right corner
                 if (y < 7)
-                    FlipCheck(x, y, -1, 1, activePlayer);//up-right
+                {
+                    /*
+                    // TO-DO: use returned value.
+                    */
+                    dummyBool = FlipCheck(x, y, -1, 1, activePlayer);//up-right
+                }
             }
 
             //All spaces except left column
             if (y > 0)
-                FlipCheck(x, y, 0, -1, activePlayer); //left
+            {
+                /*
+                // TO-DO: use returned value.
+                */
+                dummyBool = FlipCheck(x, y, 0, -1, activePlayer); //left
+            }
 
             //All spaces except right column
             if (y < 7)
-                FlipCheck(x, y, 0, 1, activePlayer); //right
+            {
+                /*
+                // TO-DO: use returned value.
+                */
+                dummyBool = FlipCheck(x, y, 0, 1, activePlayer); //right
+            }
 
             //All spaces except bottom row
             if (x < 7)
             {
                 //All spaces except bottom-left corner
                 if (y > 0)
-                    FlipCheck(x, y, 1, -1, activePlayer); //down-left
+                {
+                    /*
+                    // TO-DO: use returned value.
+                    */
+                    dummyBool = FlipCheck(x, y, 1, -1, activePlayer); //down-left
+                }
 
                 //All spaces except bottom row
-                FlipCheck(x, y, 1, 0, activePlayer); //down
+                /*
+                // TO-DO: use returned value.
+                */
+                dummyBool = FlipCheck(x, y, 1, 0, activePlayer); //down
 
                 //All spaces except bottom-right corner
                 if (y < 7)
-                    FlipCheck(x, y, 1, 1, activePlayer); //down-right
+                {
+                    /*
+                    // TO-DO: use returned value.
+                    */
+                    dummyBool = FlipCheck(x, y, 1, 1, activePlayer); //down-right
+                }
             }
         }
 
