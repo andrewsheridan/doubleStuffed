@@ -215,6 +215,7 @@ namespace doubleStuffed
         /// </summary>
         public void CommitMove(int x, int y, int activePlayer)
         {
+            Spaces[x, y] = activePlayer;
             bool dummyBool = false;
             //All spaces except top row
             if (x > 0)
