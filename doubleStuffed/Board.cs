@@ -80,10 +80,13 @@ namespace doubleStuffed
             {
                 for(int j = 0; j < 8; j++)
                 {
-                    if (Spaces[i, j] == 0 && CheckSquare(i, j, activePlayer) == true) //if the space is owned, will not call anything
+                    if (Spaces[i, j] == 0) //if the space is owned, will not call anything
                     {
-                        Spaces[i, j] = 3;
-                        existsValidMove = true;
+                        if (CheckSquare(i, j, activePlayer) == true)
+                        {
+                            Spaces[i, j] = 3;
+                            existsValidMove = true;
+                        }
                     }
                 }
             }
