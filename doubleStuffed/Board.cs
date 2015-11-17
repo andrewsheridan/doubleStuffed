@@ -31,18 +31,7 @@ namespace doubleStuffed
         
         public Board()
         {
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    Spaces[i, j] = 0;
-                }
-            }
-
-            Spaces[3, 3] = 1;
-            Spaces[4, 4] = 1;
-            Spaces[3, 4] = 2;
-            Spaces[4, 3] = 2;
+            InitBoard();
         }
 
         /// <summary>
@@ -95,7 +84,6 @@ namespace doubleStuffed
             return existsValidMove;
         }
 
-        //TO-DO
         /// <summary>
         /// Checks the validity of placing a token in the selected square.
         /// </summary>
@@ -179,7 +167,6 @@ namespace doubleStuffed
             return false;
         }
 
-        //TO-DO
         /// <summary>
         /// Checks if a space is valid from a particular direction
         /// </summary>
@@ -214,7 +201,6 @@ namespace doubleStuffed
             return false;
         }
 
-        //TO-DO
         /// <summary>
         /// Places the token at the desired valid location and flips all tokens meeting requirements.
         /// </summary>
@@ -298,7 +284,6 @@ namespace doubleStuffed
             }
         }
 
-        //TO-DO
         /// <summary>
         /// Recursively check the tokens in a designated direction until a token of the active player is found. Calls Board.FlipToken(x, y) on the tokens which need to be flipped.
         /// </summary>
