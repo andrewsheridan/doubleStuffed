@@ -41,6 +41,18 @@ namespace doubleStuffed
                 }
             }
         }
-        public void SwapPlayer() { }
+        public void SwapPlayer()
+        {
+            if (activePlayer == 1)
+            {
+                activePlayer = 2;
+                //UI.IconTokenColor ="Black";
+            }
+            else
+            {
+                activePlayer = 1;
+                //UI.IconTokenColor = "White";
+            }
+        }
     }
 }
