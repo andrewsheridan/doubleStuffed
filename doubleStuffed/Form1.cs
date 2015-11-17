@@ -42,8 +42,12 @@ namespace doubleStuffed
 
         private void checkSquareButton_Click(object sender, EventArgs e)
         {
-            gameBoard.CheckSquare((int)colUpDown.Value, (int)rowUpDown.Value, (int)activePlayerUpDown.Value);
+            bool output = gameBoard.CheckSquare((int)colUpDown.Value, (int)rowUpDown.Value, (int)activePlayerUpDown.Value);
             outputTextBox.Text = gameBoard.BoardString();
+            if (output == true)
+                messageTextBox.Text = "True";
+            else
+                messageTextBox.Text = "False";
         }
 
         private void commitMoveButton_Click(object sender, EventArgs e)

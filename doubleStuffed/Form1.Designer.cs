@@ -73,7 +73,7 @@
             // 
             // colUpDown
             // 
-            this.colUpDown.Location = new System.Drawing.Point(215, 14);
+            this.colUpDown.Location = new System.Drawing.Point(215, 40);
             this.colUpDown.Maximum = new decimal(new int[] {
             7,
             0,
@@ -85,7 +85,7 @@
             // 
             // rowUpDown
             // 
-            this.rowUpDown.Location = new System.Drawing.Point(215, 40);
+            this.rowUpDown.Location = new System.Drawing.Point(215, 14);
             this.rowUpDown.Maximum = new decimal(new int[] {
             7,
             0,

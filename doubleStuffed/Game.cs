@@ -16,6 +16,19 @@ namespace doubleStuffed
         public void GameEnd() { }
         public void InitGame() { }
         public void Run() { }
-        public void SwapPlayer() { }
+        public void SwapPlayer()
+        {
+            if (ActivePlayer == 1)
+    {
+                ActivePlayer = 2;
+                //UI.IconTokenColor ="Black";
+            }
+            else
+            {
+                ActivePlayer = 1;
+                //UI.IconTokenColor = "White";
+            }
+
+        }
     }
 }
