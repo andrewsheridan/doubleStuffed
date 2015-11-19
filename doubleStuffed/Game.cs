@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace doubleStuffed
 {
@@ -12,7 +13,27 @@ namespace doubleStuffed
         public Board GameBoard = new Board();
         //UI? Just Form1.cs?
 
-        public void GameEnd() { }
+        public void GameEnd()
+        {
+            if (p1TokenCt > p2TokenCt)
+            {
+                //Print player 1 won
+                //printWinScreen(1);  *************  UNCOMMENT!!!
+
+            }
+            else if (p1TokenCt < p2TokenCt)
+            {
+                //Print Player 2 won
+                //printWinScreen(2);  *************   UNCOMMENT!!!
+            }
+
+            else
+            {
+                //Print Tie condition
+                //printWinScreen(0);  *************   UNCOMMENT!!!
+            }
+
+        }
         public void InitGame() { }
         /// <summary>
         /// Called when the player clicks. Therefore the setup for next player is done during this function.
@@ -46,12 +67,12 @@ namespace doubleStuffed
             if (activePlayer == 1)
             {
                 activePlayer = 2;
-                //UI.IconTokenColor ="Black";
+                //UI.IconTokenColor ="Black";   *************  UNCOMMENT!!!
             }
             else
             {
                 activePlayer = 1;
-                //UI.IconTokenColor = "White";
+                //UI.IconTokenColor = "White";  *************  UNCOMMENT!!!
             }
         }
     }
