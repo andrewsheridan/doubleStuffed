@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ds.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="BoardSpace.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GameInterface.resx">
+      <DependentUpon>GameInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -73,6 +82,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -86,6 +96,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ds.ico" />
+    <None Include="Resources\game_board_bg-cropped-trans.png" />
+    <None Include="Resources\game_board_bg-cropped.png" />
+    <None Include="Resources\quit_white.png" />
+    <None Include="Resources\quit_black.png" />
+    <None Include="Resources\ds.ico" />
+    <None Include="Resources\white_token.png" />
+    <None Include="Resources\white_player_win_screen.png" />
+    <None Include="Resources\rules_help_menu.png" />
+    <None Include="Resources\right_button_white.png" />
+    <None Include="Resources\right_button_black.png" />
+    <None Include="Resources\new_game_white.png" />
+    <None Include="Resources\new_game_black.png" />
+    <None Include="Resources\load_game_white.png" />
+    <None Include="Resources\load_game_black.png" />
+    <None Include="Resources\left_button_white.png" />
+    <None Include="Resources\left_button_black.png" />
+    <None Include="Resources\help_white.png" />
+    <None Include="Resources\help_black.png" />
+    <None Include="Resources\gameplay_help_menu.png" />
+    <None Include="Resources\game_board_bg.png" />
+    <None Include="Resources\black_token.png" />
+    <None Include="Resources\black_player_win_screen.png" />
+    <None Include="Resources\background_image_menu.png" />
+    <None Include="Resources\background_image.png" />
+    <None Include="Resources\dsIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
