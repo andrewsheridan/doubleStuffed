@@ -12,22 +12,12 @@ namespace doubleStuffed
         public int activePlayer, p1TokenCt, p2TokenCt;
         public Board GameBoard = new Board();
         //UI? Just Form1.cs?
-<<<<<<< HEAD
+
         public Game()
         {
             InitGame();
         }
-        public void GameEnd() { }
-        public void InitGame()
-        {
-            GameBoard.InitBoard();
-            p1TokenCt = 2;
-            p2TokenCt = 2;
-            activePlayer = 1;
-            GameBoard.CheckBoard(activePlayer);
-        }
-=======
-
+        
         public void GameEnd()
         {
             if (p1TokenCt > p2TokenCt)
@@ -47,10 +37,17 @@ namespace doubleStuffed
                 //Print Tie condition
                 //printWinScreen(0);  *************   UNCOMMENT!!!
             }
->>>>>>> origin/master
-
         }
-        public void InitGame() { }
+
+        public void InitGame()
+        {
+            GameBoard.InitBoard();
+            p1TokenCt = 2;
+            p2TokenCt = 2;
+            activePlayer = 1;
+            GameBoard.CheckBoard(activePlayer);
+        }
+        
         /// <summary>
         /// Called when the player clicks. Therefore the setup for next player is done during this function.
         /// </summary>
