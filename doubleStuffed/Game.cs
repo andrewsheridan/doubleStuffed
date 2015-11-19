@@ -20,7 +20,6 @@ namespace doubleStuffed
             activePlayer = 1;
         }
 
-
         /// <summary>
         /// Called when the player clicks. Therefore the setup for next player is done during this function.
         /// </summary>
@@ -48,6 +47,10 @@ namespace doubleStuffed
                 }
             }
         }
+
+        /// <summary>
+        /// Swaps the player from 1 to 2 or 2 to 1
+        /// </summary>
         public void SwapPlayer()
         {
             if (activePlayer == 1)
