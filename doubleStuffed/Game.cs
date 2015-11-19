@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,23 +12,15 @@ namespace doubleStuffed
         //UI? Just Form1.cs?
 
         public void GameEnd() { }
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+        public void InitGame()
+        {
+            GameBoard.InitBoard();
+            p1TokenCt = 2;
+            p2TokenCt = 2;
+            activePlayer = 1;
+        }
 
-namespace doubleStuffed
-{
-    class Game
-    {
-        public int activePlayer, p1TokenCt, p2TokenCt;
-        public Board GameBoard = new Board();
-        //UI? Just Form1.cs?
 
-        public void GameEnd() { }
-        public void InitGame() { }
-        public void InitGame() { }
         /// <summary>
         /// Called when the player clicks. Therefore the setup for next player is done during this function.
         /// </summary>
