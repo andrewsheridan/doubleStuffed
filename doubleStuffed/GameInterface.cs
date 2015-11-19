@@ -11,6 +11,10 @@ namespace doubleStuffed
             tempObj = inEngine;
             InitializeComponent();
             Init2DBoard();
+
+
+
+
         }
 
         private void newGameButton_MouseEnter(object sender, EventArgs e)
