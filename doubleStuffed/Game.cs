@@ -12,7 +12,10 @@ namespace doubleStuffed
         public Board GameBoard = new Board();
         //UI? Just Form1.cs?
 
-        public void GameEnd() { }
+        public void GameEnd()
+        {
+
+        }
         public void InitGame() { }
         /// <summary>
         /// Called when the player clicks. Therefore the setup for next player is done during this function.
