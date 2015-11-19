@@ -17,7 +17,8 @@ namespace doubleStuffed
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
-            Application.Run(new GameInterface());
+            Game gameEngine = new Game();
+            Application.Run(new GameInterface(gameEngine));
         }
     }
 }

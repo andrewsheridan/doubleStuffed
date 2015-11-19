@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 
 namespace doubleStuffed
 {
-    class Game
+    public class Game
     {
         public int activePlayer, p1TokenCt, p2TokenCt;
         public Board GameBoard = new Board();
         //UI? Just Form1.cs?
-
+        public Game()
+        {
+            InitGame();
+        }
         public void GameEnd() { }
         public void InitGame()
         {
@@ -18,6 +21,7 @@ namespace doubleStuffed
             p1TokenCt = 2;
             p2TokenCt = 2;
             activePlayer = 1;
+            GameBoard.CheckBoard(activePlayer);
         }
 
         /// <summary>

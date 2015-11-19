@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace doubleStuffed
 {
     public partial class GameInterface : Form
     {
-        public GameInterface()
+        Game tempObj;
+        public GameInterface(Game inEngine)
         {
+            tempObj = inEngine;
             InitializeComponent();
             Init2DBoard();
         }
@@ -86,9 +81,10 @@ namespace doubleStuffed
 
         private void BoardSpaceClicker(object sender, EventArgs e)
         {
-            BoardSpace temp = (BoardSpace)sender;
-            //Change to game.run(temp.getX(), temp.getY()); after integration
-            temp.setState(1);
+            BoardSpace ClickedSpace = (BoardSpace)sender;
+            tempObj.Run(ClickedSpace.getY(), ClickedSpace.getX());
+            Console.WriteLine(tempObj.GameBoard.Spaces[ClickedSpace.getX(), ClickedSpace.getY()]);
+            //temp.setState(1);
 
             //Console.Write("Registered click at " + temp.getX() + ", " + temp.getY() + "| State: ");
             /*switch (temp.getState())
@@ -111,8 +107,8 @@ namespace doubleStuffed
                 for (int column = 0; column < 8; column++)
                 {
                     //buttonArray[row, column].setState(---Board[row, column]);
-                    //int state = Board.Board[row, column] //Actual
-                    int state = buttonArray[row, column].getState();
+                    int state = tempObj.GameBoard.Spaces[row, column]; //Actual
+                    //int state = buttonArray[row, column].getState();
                     switch (state)
                     {
                         case 0:
