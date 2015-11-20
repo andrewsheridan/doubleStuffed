@@ -99,13 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ds.ico" />
-    <None Include="Resources\white_turn.png" />
-    <None Include="Resources\black_turn.png" />
-    <None Include="Resources\game_board_bg.png" />
-    <None Include="Resources\quit_white.png" />
-    <None Include="Resources\black_token.png" />
     <None Include="Resources\game_board_bg-cropped-trans.png" />
     <None Include="Resources\game_board_bg-cropped.png" />
+    <None Include="Resources\quit_white.png" />
     <None Include="Resources\quit_black.png" />
     <None Include="Resources\ds.ico" />
     <None Include="Resources\white_token.png" />
@@ -122,6 +118,8 @@
     <None Include="Resources\help_white.png" />
     <None Include="Resources\help_black.png" />
     <None Include="Resources\gameplay_help_menu.png" />
+    <None Include="Resources\game_board_bg.png" />
+    <None Include="Resources\black_token.png" />
     <None Include="Resources\black_player_win_screen.png" />
     <None Include="Resources\background_image_menu.png" />
     <None Include="Resources\background_image.png" />

@@ -101,16 +101,6 @@ namespace doubleStuffed.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap black_turn {
-            get {
-                object obj = ResourceManager.GetObject("black_turn", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon ds {
@@ -306,16 +296,6 @@ namespace doubleStuffed.Properties {
         internal static System.Drawing.Bitmap white_token {
             get {
                 object obj = ResourceManager.GetObject("white_token", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap white_turn {
-            get {
-                object obj = ResourceManager.GetObject("white_turn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
