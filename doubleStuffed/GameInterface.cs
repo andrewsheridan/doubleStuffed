@@ -70,7 +70,8 @@ namespace doubleStuffed
 
         private void helpButton_Click(object sender, EventArgs e)
         {
-            BackgroundImage = Properties.Resources.gameplay_help_menu;
+            menuPanel.Visible = false;
+            gameplayHelpPanel.Visible = true;
         }
 
         private void menuPanel_Paint(object sender, PaintEventArgs e)
@@ -130,6 +131,68 @@ namespace doubleStuffed
                     }
                 }
             }
+        }
+
+        private void rightHelpButton_MouseEnter(object sender, EventArgs e)
+        {
+            rightHelpButton.Image = Properties.Resources.right_button_white;
+        }
+
+        private void rightHelpButton_MouseLeave(object sender, EventArgs e)
+        {
+            rightHelpButton.Image = Properties.Resources.right_button_black;
+        }
+
+        
+
+        private void openRulesButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://en.wikipedia.org/wiki/Reversi#Rules");
+            }
+            catch { }
+        }
+
+        private void leftButtonRules_Click(object sender, EventArgs e)
+        {
+            ruleHelpPanel.Visible = false;
+            gameplayHelpPanel.Visible = true;
+            rightHelpButton.Visible = true;
+        }
+
+        private void rightButtonRules_Click(object sender, EventArgs e)
+        {
+            ruleHelpPanel.Visible = false;
+            gameplayHelpPanel.Visible = false;
+            menuPanel.Visible = true;
+            rightHelpButton.Visible = true;
+        }
+
+        private void rightHelpButton_Click(object sender, EventArgs e)
+        {
+            rightHelpButton.Visible = false;
+            ruleHelpPanel.Visible = true;
+        }
+
+        private void leftButtonRules_MouseEnter(object sender, EventArgs e)
+        {
+            leftButtonRules.Image = Properties.Resources.left_button_white;
+        }
+
+        private void leftButtonRules_MouseLeave(object sender, EventArgs e)
+        {
+            leftButtonRules.Image = Properties.Resources.left_button_black;
+        }
+
+        private void rightButtonRules_MouseEnter(object sender, EventArgs e)
+        {
+            rightButtonRules.Image = Properties.Resources.right_button_white;
+        }
+
+        private void rightButtonRules_MouseLeave(object sender, EventArgs e)
+        {
+            rightButtonRules.Image = Properties.Resources.right_button_black;
         }
     }
 }
