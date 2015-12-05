@@ -11,12 +11,11 @@ namespace doubleStuffed
             tempObj = inEngine;
             InitializeComponent();
             Init2DBoard();
-
-
-
-
         }
 
+        /*****************************************************************
+        *Basic Menu button functions, comments added throughout as needed*
+        *****************************************************************/
         private void newGameButton_MouseEnter(object sender, EventArgs e)
         {
             newGameButton.Image = Properties.Resources.new_game_white;
@@ -61,6 +60,8 @@ namespace doubleStuffed
         {
             menuPanel.Visible = false;
             gamePanel.Visible = true;
+            tempObj.GameBoard.InitBoard();
+            Init2DBoard();
         }
 
         private void quitButton_Click(object sender, EventArgs e)
@@ -70,8 +71,95 @@ namespace doubleStuffed
 
         private void helpButton_Click(object sender, EventArgs e)
         {
-            BackgroundImage = Properties.Resources.gameplay_help_menu;
+            menuPanel.Visible = false;
+            gameplayHelpPanel.Visible = true;
         }
+
+        private void rightHelpButton_MouseEnter(object sender, EventArgs e)
+        {
+            rightHelpButton.Image = Properties.Resources.right_button_white;
+        }
+
+        private void rightHelpButton_MouseLeave(object sender, EventArgs e)
+        {
+            rightHelpButton.Image = Properties.Resources.right_button_black;
+        }
+
+        private void openRulesButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://en.wikipedia.org/wiki/Reversi#Rules");
+            }
+            catch { }
+        }
+
+        private void leftButtonRules_Click(object sender, EventArgs e)
+        {
+            ruleHelpPanel.Visible = false;
+            gameplayHelpPanel.Visible = true;
+            rightHelpButton.Visible = true;
+        }
+
+        private void rightButtonRules_Click(object sender, EventArgs e)
+        {
+            ruleHelpPanel.Visible = false;
+            gameplayHelpPanel.Visible = false;
+            menuPanel.Visible = true;
+            rightHelpButton.Visible = true;
+        }
+
+        private void rightHelpButton_Click(object sender, EventArgs e)
+        {
+            rightHelpButton.Visible = false;
+            ruleHelpPanel.Visible = true;
+        }
+
+        private void leftButtonRules_MouseEnter(object sender, EventArgs e)
+        {
+            leftButtonRules.Image = Properties.Resources.left_button_white;
+        }
+
+        private void leftButtonRules_MouseLeave(object sender, EventArgs e)
+        {
+            leftButtonRules.Image = Properties.Resources.left_button_black;
+        }
+
+        private void rightButtonRules_MouseEnter(object sender, EventArgs e)
+        {
+            rightButtonRules.Image = Properties.Resources.right_button_white;
+        }
+
+        private void rightButtonRules_MouseLeave(object sender, EventArgs e)
+        {
+            rightButtonRules.Image = Properties.Resources.right_button_black;
+        }
+
+        /***********************************
+        *End of basic Menu button functions*
+        ***********************************/
+
+
+        /***********************
+        *Menu Bar functionality*
+        ***********************/
+
+        //quit from gameplay menu bar
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        //go to main menu from gameplay menu bar
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuPanel.Visible = true;
+            gamePanel.Visible = false;
+        }
+
+        /******************************
+        *End of Menu Bar functionality*
+        ******************************/
 
         private void menuPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -87,25 +175,15 @@ namespace doubleStuffed
         {
             BoardSpace ClickedSpace = (BoardSpace)sender;
             tempObj.Run(ClickedSpace.getY(), ClickedSpace.getX());
-            Console.WriteLine(tempObj.GameBoard.Spaces[ClickedSpace.getX(), ClickedSpace.getY()]);
-            //temp.setState(1);
-
-            //Console.Write("Registered click at " + temp.getX() + ", " + temp.getY() + "| State: ");
-            /*switch (temp.getState())
+            if (tempObj.activePlayer == 1)
             {
-                case 0:
-                    Console.WriteLine("Empty");
-                    break;
-                case 1:
-                    Console.WriteLine("White token");
-                    break;
-                case 2:
-                    Console.WriteLine("Black token");
-                    break;
-                case 3:
-                    Console.WriteLine("Valid space");
-                    break;
-            }*/
+                TurnPicture.Image = global::doubleStuffed.Properties.Resources.white_turn;
+            }
+            else
+            {
+                TurnPicture.Image = global::doubleStuffed.Properties.Resources.black_turn;
+            }
+            Console.WriteLine(tempObj.GameBoard.Spaces[ClickedSpace.getX(), ClickedSpace.getY()]);
             for (int row = 0; row < 8; row++)
             {
                 for (int column = 0; column < 8; column++)
@@ -125,11 +203,17 @@ namespace doubleStuffed
                             buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.black_token;
                             break;
                         case 3:
-                            buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.left_button_black;
+                            buttonArray[row, column].BackgroundImage = Properties.Resources.game_board_bg_cropped;
                             break;
                     }
                 }
             }
+        }
+
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tempObj.GameBoard.InitBoard();
+            Init2DBoard();
         }
     }
 }
