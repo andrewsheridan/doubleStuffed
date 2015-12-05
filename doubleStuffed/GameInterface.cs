@@ -174,9 +174,9 @@ namespace doubleStuffed
 
         }
 
-       /* public void gameOverScreen(int winner)
+        public void gameOverScreen(int winner)
         {
-            if (gameObj.GameEnd() =1)
+            if (tempObj.GameEnd() == 1)
             {
                 
             }
@@ -189,7 +189,7 @@ namespace doubleStuffed
             {
                 //tie condition
             }
-        } */
+        } 
 
         private void BoardSpaceClicker(object sender, EventArgs e)
         {
