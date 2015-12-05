@@ -18,24 +18,24 @@ namespace doubleStuffed
             InitGame();
         }
         
-        public void GameEnd()
+        public int GameEnd()
         {
             if (p1TokenCt > p2TokenCt)
             {
-                //Print player 1 won
-                //printWinScreen(1);  *************  UNCOMMENT!!!
+                //Player 1 won
+                return 1; 
 
             }
             else if (p1TokenCt < p2TokenCt)
             {
-                //Print Player 2 won
-                //printWinScreen(2);  *************   UNCOMMENT!!!
+                //Player 2 won
+                return 2; 
             }
 
             else
             {
-                //Print Tie condition
-                //printWinScreen(0);  *************   UNCOMMENT!!!
+                //Tie condition
+                return 0;
             }
         }
 

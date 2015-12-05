@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;    ////GARRETT"S VERSION
 using System.Windows.Forms;
 
 namespace doubleStuffed
@@ -6,6 +6,7 @@ namespace doubleStuffed
     public partial class GameInterface : Form
     {
         Game tempObj;
+        Game gameObj = new Game();
         public GameInterface(Game inEngine)
         {
             tempObj = inEngine;
@@ -17,6 +18,9 @@ namespace doubleStuffed
 
         }
 
+        /*****************************************************************
+        *Basic Menu button functions, comments added throughout as needed*
+        *****************************************************************/
         private void newGameButton_MouseEnter(object sender, EventArgs e)
         {
             newGameButton.Image = Properties.Resources.new_game_white;
@@ -70,8 +74,95 @@ namespace doubleStuffed
 
         private void helpButton_Click(object sender, EventArgs e)
         {
-            BackgroundImage = Properties.Resources.gameplay_help_menu;
+            menuPanel.Visible = false;
+            gameplayHelpPanel.Visible = true;
         }
+
+        private void rightHelpButton_MouseEnter(object sender, EventArgs e)
+        {
+            rightHelpButton.Image = Properties.Resources.right_button_white;
+        }
+
+        private void rightHelpButton_MouseLeave(object sender, EventArgs e)
+        {
+            rightHelpButton.Image = Properties.Resources.right_button_black;
+        }
+
+        private void openRulesButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://en.wikipedia.org/wiki/Reversi#Rules");
+            }
+            catch { }
+        }
+
+        private void leftButtonRules_Click(object sender, EventArgs e)
+        {
+            ruleHelpPanel.Visible = false;
+            gameplayHelpPanel.Visible = true;
+            rightHelpButton.Visible = true;
+        }
+
+        private void rightButtonRules_Click(object sender, EventArgs e)
+        {
+            ruleHelpPanel.Visible = false;
+            gameplayHelpPanel.Visible = false;
+            menuPanel.Visible = true;
+            rightHelpButton.Visible = true;
+        }
+
+        private void rightHelpButton_Click(object sender, EventArgs e)
+        {
+            rightHelpButton.Visible = false;
+            ruleHelpPanel.Visible = true;
+        }
+
+        private void leftButtonRules_MouseEnter(object sender, EventArgs e)
+        {
+            leftButtonRules.Image = Properties.Resources.left_button_white;
+        }
+
+        private void leftButtonRules_MouseLeave(object sender, EventArgs e)
+        {
+            leftButtonRules.Image = Properties.Resources.left_button_black;
+        }
+
+        private void rightButtonRules_MouseEnter(object sender, EventArgs e)
+        {
+            rightButtonRules.Image = Properties.Resources.right_button_white;
+        }
+
+        private void rightButtonRules_MouseLeave(object sender, EventArgs e)
+        {
+            rightButtonRules.Image = Properties.Resources.right_button_black;
+        }
+
+        /***********************************
+        *End of basic Menu button functions*
+        ***********************************/
+
+
+        /***********************
+        *Menu Bar functionality*
+        ***********************/
+
+        //quit from gameplay menu bar
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        //go to main menu from gameplay menu bar
+        private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuPanel.Visible = true;
+            gamePanel.Visible = false;
+        }
+
+        /******************************
+        *End of Menu Bar functionality*
+        ******************************/
 
         private void menuPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -82,6 +173,23 @@ namespace doubleStuffed
         {
 
         }
+
+       /* public void gameOverScreen(int winner)
+        {
+            if (gameObj.GameEnd() =1)
+            {
+                
+            }
+            else if (gameObj.GameEnd() == 2)
+
+            {
+                //dosomething else
+            }
+            else
+            {
+                //tie condition
+            }
+        } */
 
         private void BoardSpaceClicker(object sender, EventArgs e)
         {
