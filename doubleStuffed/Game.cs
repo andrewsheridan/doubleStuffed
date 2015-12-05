@@ -80,13 +80,10 @@ namespace doubleStuffed
             if (activePlayer == 1)
             {
                 activePlayer = 2;
-                //UI.IconTokenColor ="Black";   *************  UNCOMMENT!!!
-                
             }
             else
             {
                 activePlayer = 1;
-                //UI.IconTokenColor = "White";  *************  UNCOMMENT!!!
             }
         }
     }
