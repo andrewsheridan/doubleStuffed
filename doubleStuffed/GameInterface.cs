@@ -41,6 +41,50 @@ namespace doubleStuffed
             loadGameButton.Image = Properties.Resources.load_game_black;
         }
 
+        private void saveGameButton_Click(object sender, EventArgs e)
+        {
+            var directory = System.IO.Directory.GetCurrentDirectory();
+            System.IO.StreamWriter file = new System.IO.StreamWriter(@directory + "save.txt");
+
+            int counter = 0;
+
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    int save = tempObj.GameBoard.Spaces[i, j];
+                }
+            }
+        }
+
+        private void loadGameButton_Click(object sender, EventArgs e)
+        {
+            var directory = System.IO.Directory.GetCurrentDirectory();
+            System.IO.StreamReader file = new System.IO.StreamReader(@directory + "save.txt");
+            string line;
+            int counter = 0;
+            while ((line = file.ReadLine()) != null)
+            {
+                if (counter == 0)
+                {
+
+                    //Active player = to int (line)
+                }
+
+                string[] ssize = line.Split(null);
+                for (int i = 0; i < ssize.Length; i++)
+                {
+                    tempObj.GameBoard.Spaces[counter, i] = Convert.ToInt32(ssize[i]);
+                }
+                counter++;
+            }
+
+            file.Close();
+
+            menuPanel.Visible = false;
+            gamePanel.Visible = true;
+        }
+
         private void helpButton_MouseEnter(object sender, EventArgs e)
         {
             helpButton.Image = Properties.Resources.help_white;
@@ -238,6 +282,16 @@ namespace doubleStuffed
                     }
                 }
             }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveGameButton_Click(sender, e);
+        }
+
+        private void ruleHelpPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
