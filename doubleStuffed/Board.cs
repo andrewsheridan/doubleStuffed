@@ -336,6 +336,11 @@ namespace doubleStuffed
             Spaces[4, 4] = 1;
             Spaces[3, 4] = 2;
             Spaces[4, 3] = 2;
+            Spaces[2, 4] = 3;
+            Spaces[4, 2] = 3;
+            Spaces[5, 3] = 3;
+            Spaces[3, 5] = 3;
+
         }
     }
 }

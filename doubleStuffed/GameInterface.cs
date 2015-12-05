@@ -1,4 +1,4 @@
-﻿using System;    ////GARRETT"S VERSION
+﻿using System;
 using System.Windows.Forms;
 
 namespace doubleStuffed
@@ -6,16 +6,11 @@ namespace doubleStuffed
     public partial class GameInterface : Form
     {
         Game tempObj;
-        Game gameObj = new Game();
         public GameInterface(Game inEngine)
         {
             tempObj = inEngine;
             InitializeComponent();
             Init2DBoard();
-
-
-
-
         }
 
         /*****************************************************************
@@ -65,6 +60,8 @@ namespace doubleStuffed
         {
             menuPanel.Visible = false;
             gamePanel.Visible = true;
+            tempObj.GameBoard.InitBoard();
+            Init2DBoard();
         }
 
         private void quitButton_Click(object sender, EventArgs e)
@@ -174,46 +171,19 @@ namespace doubleStuffed
 
         }
 
-        public void gameOverScreen(int winner)
-        {
-            if (tempObj.GameEnd() == 1)
-            {
-                
-            }
-            else if (gameObj.GameEnd() == 2)
-
-            {
-                //dosomething else
-            }
-            else
-            {
-                //tie condition
-            }
-        } 
-
         private void BoardSpaceClicker(object sender, EventArgs e)
         {
             BoardSpace ClickedSpace = (BoardSpace)sender;
             tempObj.Run(ClickedSpace.getY(), ClickedSpace.getX());
-            Console.WriteLine(tempObj.GameBoard.Spaces[ClickedSpace.getX(), ClickedSpace.getY()]);
-            //temp.setState(1);
-
-            //Console.Write("Registered click at " + temp.getX() + ", " + temp.getY() + "| State: ");
-            /*switch (temp.getState())
+            if (tempObj.activePlayer == 1)
             {
-                case 0:
-                    Console.WriteLine("Empty");
-                    break;
-                case 1:
-                    Console.WriteLine("White token");
-                    break;
-                case 2:
-                    Console.WriteLine("Black token");
-                    break;
-                case 3:
-                    Console.WriteLine("Valid space");
-                    break;
-            }*/
+                TurnPicture.Image = global::doubleStuffed.Properties.Resources.white_turn;
+            }
+            else
+            {
+                TurnPicture.Image = global::doubleStuffed.Properties.Resources.black_turn;
+            }
+            Console.WriteLine(tempObj.GameBoard.Spaces[ClickedSpace.getX(), ClickedSpace.getY()]);
             for (int row = 0; row < 8; row++)
             {
                 for (int column = 0; column < 8; column++)
@@ -233,11 +203,17 @@ namespace doubleStuffed
                             buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.black_token;
                             break;
                         case 3:
-                            buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.left_button_black;
+                            buttonArray[row, column].BackgroundImage = Properties.Resources.game_board_bg_cropped;
                             break;
                     }
                 }
             }
+        }
+
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tempObj.GameBoard.InitBoard();
+            Init2DBoard();
         }
     }
 }
