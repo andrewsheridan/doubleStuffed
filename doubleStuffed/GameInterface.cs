@@ -109,6 +109,8 @@ namespace doubleStuffed
         {
             menuPanel.Visible = false;
             gamePanel.Visible = true;
+            tempObj.GameBoard.InitBoard();
+            Init2DBoard();
         }
 
         private void quitButton_Click(object sender, EventArgs e)
@@ -240,24 +242,14 @@ namespace doubleStuffed
             BoardSpace ClickedSpace = (BoardSpace)sender;
             tempObj.Run(ClickedSpace.getY(), ClickedSpace.getX());
             Console.WriteLine(tempObj.GameBoard.Spaces[ClickedSpace.getX(), ClickedSpace.getY()]);
-            //temp.setState(1);
-
-            //Console.Write("Registered click at " + temp.getX() + ", " + temp.getY() + "| State: ");
-            /*switch (temp.getState())
+            if (tempObj.activePlayer == 1)
             {
-                case 0:
-                    Console.WriteLine("Empty");
-                    break;
-                case 1:
-                    Console.WriteLine("White token");
-                    break;
-                case 2:
-                    Console.WriteLine("Black token");
-                    break;
-                case 3:
-                    Console.WriteLine("Valid space");
-                    break;
-            }*/
+                TurnPicture.Image = global::doubleStuffed.Properties.Resources.white_turn;
+            }
+            else
+            {
+                TurnPicture.Image = global::doubleStuffed.Properties.Resources.black_turn;
+            }
             for (int row = 0; row < 8; row++)
             {
                 for (int column = 0; column < 8; column++)
@@ -292,6 +284,12 @@ namespace doubleStuffed
         private void ruleHelpPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tempObj.GameBoard.InitBoard();
+            Init2DBoard();
         }
     }
 }

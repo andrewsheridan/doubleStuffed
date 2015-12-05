@@ -357,40 +357,38 @@ namespace doubleStuffed
 
         private void Init2DBoard()
         {
+            this.TurnPicture.Image = global::doubleStuffed.Properties.Resources.white_turn;
             for (int row = 0; row < 8; row++)
             {
                 for (int column = 0; column < 8; column++)
                 {
                     buttonArray[row, column] = new BoardSpace(column, row);
-                    buttonArray[row, column].Size = new Size(40, 40);
-                    buttonArray[row, column].Location = new Point(36 + column * 50, 143 + row * 50);
+                    buttonArray[row, column].Size = new Size(58, 58);
+                    buttonArray[row, column].Location = new Point(84 + column * 62, 55 + row * 62);
                     this.Controls.Add(buttonArray[row, column]);
                     buttonArray[row, column].Click += BoardSpaceClicker;
                     this.gamePanel.Controls.Add(buttonArray[row, column]);
 
                     buttonArray[row, column].BringToFront();
-                    //buttonArray[row, column].BackColor = System.Drawing.Color.Transparent;
                     buttonArray[row, column].FlatAppearance.BorderSize = 0;
                     buttonArray[row, column].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                    if ((row == 3 && column == 3) || (row == 4 && column == 4))
+                    buttonArray[row, column].BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                    int state = tempObj.GameBoard.Spaces[row, column];
+                    switch (state)
                     {
-                        buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.white_token;
-                        buttonArray[row, column].BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-                        buttonArray[row, column].setState(1);
+                        case 0:
+                            buttonArray[row, column].BackgroundImage = null;
+                            break;
+                        case 1:
+                            buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.white_token;
+                            break;
+                        case 2:
+                            buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.black_token;
+                            break;
+                        case 3:
+                            buttonArray[row, column].BackgroundImage = Properties.Resources.game_board_bg_cropped;
+                            break;
                     }
-                    else if ((row == 3 && column == 4) || (row == 4 && column == 3))
-                    {
-                        buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.black_token;
-                        buttonArray[row, column].BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-                        buttonArray[row, column].setState(2);
-                    }
-                    else
-                    {
-                        //buttonArray[row, column].BackgroundImage = null;
-                        buttonArray[row, column].BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-                        buttonArray[row, column].setState(0);
-                    }
-                    //BoardGridPicture.BringToFront();
                 }
             }
         }
