@@ -44,7 +44,7 @@ namespace doubleStuffed
             GameBoard.InitBoard();
             p1TokenCt = 2;
             p2TokenCt = 2;
-            activePlayer = 1;
+            activePlayer = 2;
             GameBoard.CheckBoard(activePlayer);
         }
         
