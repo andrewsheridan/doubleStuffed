@@ -40,7 +40,6 @@ namespace doubleStuffed
             this.menuPanel = new System.Windows.Forms.Panel();
             this.gamePanel = new System.Windows.Forms.Panel();
             this.TurnPicture = new System.Windows.Forms.PictureBox();
-            this.BS0x0 = new BoardSpace();
             this.BoardGridPicture = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -168,21 +167,6 @@ namespace doubleStuffed
             this.TurnPicture.Size = new System.Drawing.Size(133, 615);
             this.TurnPicture.TabIndex = 3;
             this.TurnPicture.TabStop = false;
-            // 
-            // BS0x0
-            // 
-            this.BS0x0.BackColor = System.Drawing.Color.Transparent;
-            this.BS0x0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BS0x0.FlatAppearance.BorderSize = 0;
-            this.BS0x0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BS0x0.Image = global::doubleStuffed.Properties.Resources.white_token;
-            this.BS0x0.Location = new System.Drawing.Point(49, 177);
-            this.BS0x0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.BS0x0.Name = "BS0x0";
-            this.BS0x0.Size = new System.Drawing.Size(60, 55);
-            this.BS0x0.TabIndex = 1;
-            this.BS0x0.Text = "boardSpace2";
-            this.BS0x0.UseVisualStyleBackColor = false;
             // 
             // BoardGridPicture
             // 
