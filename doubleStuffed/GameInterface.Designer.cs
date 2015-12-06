@@ -148,7 +148,6 @@ namespace doubleStuffed
             this.gamePanel.BackColor = System.Drawing.Color.Transparent;
             this.gamePanel.BackgroundImage = global::doubleStuffed.Properties.Resources.game_board_bg;
             this.gamePanel.Controls.Add(this.TurnPicture);
-            this.gamePanel.Controls.Add(this.BS0x0);
             this.gamePanel.Controls.Add(this.BoardGridPicture);
             this.gamePanel.Controls.Add(this.menuStrip1);
             this.gamePanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -227,6 +226,7 @@ namespace doubleStuffed
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
             this.newGameToolStripMenuItem.Size = new System.Drawing.Size(168, 28);
             this.newGameToolStripMenuItem.Text = "New Game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameButton_Click);
             // 
             // mainMenuToolStripMenuItem
             // 
@@ -258,8 +258,8 @@ namespace doubleStuffed
             // gameplayHelpPanel
             // 
             this.gameplayHelpPanel.BackgroundImage = global::doubleStuffed.Properties.Resources.gameplay_help_menu;
-            this.gameplayHelpPanel.Controls.Add(this.rightHelpButton);
             this.gameplayHelpPanel.Controls.Add(this.ruleHelpPanel);
+            this.gameplayHelpPanel.Controls.Add(this.rightHelpButton);
             this.gameplayHelpPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gameplayHelpPanel.Location = new System.Drawing.Point(0, 0);
             this.gameplayHelpPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -416,7 +416,6 @@ namespace doubleStuffed
         private System.Windows.Forms.PictureBox quitButton;
         private System.Windows.Forms.Panel menuPanel;
         private System.Windows.Forms.Panel gamePanel;
-        private BoardSpace BS0x0;
         private System.Windows.Forms.PictureBox BoardGridPicture;
         private System.Windows.Forms.Panel gameplayHelpPanel;
         private System.Windows.Forms.PictureBox rightHelpButton;
