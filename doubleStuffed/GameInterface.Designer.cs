@@ -342,7 +342,7 @@ namespace doubleStuffed
 
         private void Init2DBoard()
         {
-            this.TurnPicture.Image = global::doubleStuffed.Properties.Resources.white_turn;
+            this.TurnPicture.Image = global::doubleStuffed.Properties.Resources.black_turn;
             for (int row = 0; row < 8; row++)
             {
                 for (int column = 0; column < 8; column++)
