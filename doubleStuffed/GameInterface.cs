@@ -44,38 +44,41 @@ namespace doubleStuffed
         private void saveGameButton_Click(object sender, EventArgs e)
         {
             var directory = System.IO.Directory.GetCurrentDirectory();
-            System.IO.StreamWriter file = new System.IO.StreamWriter(@directory + "save.txt");
+            //System.IO.StreamWriter file = new System.IO.StreamWriter(@directory + "save.txt");
 
-            int counter = 0;
+            string output = "";
 
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    int save = tempObj.GameBoard.Spaces[i, j];
+                    output += tempObj.GameBoard.Spaces[i, j] + " ";
                 }
+                output+=Environment.NewLine;
             }
+            System.IO.File.WriteAllText(directory + @"\save.txt", output);
         }
 
         private void loadGameButton_Click(object sender, EventArgs e)
         {
             var directory = System.IO.Directory.GetCurrentDirectory();
-            System.IO.StreamReader file = new System.IO.StreamReader(@directory + "save.txt");
+            System.IO.StreamReader file = new System.IO.StreamReader(directory + @"\save.txt");
             string line;
             int counter = 0;
             while ((line = file.ReadLine()) != null)
             {
                 if (counter == 0)
                 {
-
                     //Active player = to int (line)
                 }
 
                 string[] ssize = line.Split(null);
-                for (int i = 0; i < ssize.Length; i++)
+                for (int i = 0; i < ssize.Length-1; i++)
                 {
                     tempObj.GameBoard.Spaces[counter, i] = Convert.ToInt32(ssize[i]);
+                    Console.Write(" " + Convert.ToInt32(ssize[i]));
                 }
+                Console.WriteLine("");
                 counter++;
             }
 
