@@ -223,25 +223,34 @@ namespace doubleStuffed
 
         }
 
-       /* public void gameOverScreen(int winner)
+       public void gameOverScreen(int winner)
         {
-            if (gameObj.GameEnd() =1)
+            if (gameObj.GameEnd() == 2)
             {
-                
+                //black token won
+                blackWinPanel.Visible = true;
+                blackWinPanel.BackgroundImage = Properties.Resources.black_player_win_screen;
             }
-            else if (gameObj.GameEnd() == 2)
+            else if (gameObj.GameEnd() == 1)
 
             {
-                //dosomething else
+                //white token won
+                blackWinPanel.Visible = true;
+                blackWinPanel.BackgroundImage = Properties.Resources.white_player_win_screen;
             }
             else
             {
                 //tie condition
+                blackWinPanel.Visible = true;
+                blackWinPanel.BackgroundImage = Properties.Resources.black_player_win_screen;
             }
-        } */
+        } 
 
         private void BoardSpaceClicker(object sender, EventArgs e)
         {
+            if (tempObj.gameOver == true)
+                gameOverScreen(tempObj.GameEnd());
+
             BoardSpace ClickedSpace = (BoardSpace)sender;
             tempObj.Run(ClickedSpace.getY(), ClickedSpace.getX());
             Console.WriteLine(tempObj.GameBoard.Spaces[ClickedSpace.getX(), ClickedSpace.getY()]);
@@ -272,7 +281,7 @@ namespace doubleStuffed
                             buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.black_token;
                             break;
                         case 3:
-                            buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.left_button_black;
+                            buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.game_board_bg_cropped;
                             break;
                     }
                 }
@@ -293,6 +302,11 @@ namespace doubleStuffed
         {
             tempObj.GameBoard.InitBoard();
             Init2DBoard();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

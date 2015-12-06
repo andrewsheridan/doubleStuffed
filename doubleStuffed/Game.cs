@@ -11,6 +11,7 @@ namespace doubleStuffed
     {
         public int activePlayer, p1TokenCt, p2TokenCt;
         public Board GameBoard = new Board();
+        public bool gameOver = false;
         //UI? Just Form1.cs?
 
         public Game()
@@ -41,10 +42,11 @@ namespace doubleStuffed
 
         public void InitGame()
         {
+            gameOver = false;
             GameBoard.InitBoard();
             p1TokenCt = 2;
             p2TokenCt = 2;
-            activePlayer = 1;
+            activePlayer = 2;
             GameBoard.CheckBoard(activePlayer);
         }
         
@@ -70,6 +72,7 @@ namespace doubleStuffed
                     //no move for activePlayer A, end game.
                     if (!GameBoard.CheckBoard(activePlayer))
                     {
+                        gameOver = true;
                         GameEnd();
                     }
                 }
