@@ -54,7 +54,6 @@ namespace doubleStuffed
             this.leftButtonRules = new System.Windows.Forms.PictureBox();
             this.rightButtonRules = new System.Windows.Forms.PictureBox();
             this.openRulesButton = new System.Windows.Forms.PictureBox();
-            this.BS0x0 = new BoardSpace();
             ((System.ComponentModel.ISupportInitialize)(this.newGameButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadGameButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.helpButton)).BeginInit();
@@ -143,7 +142,6 @@ namespace doubleStuffed
             this.gamePanel.BackColor = System.Drawing.Color.Transparent;
             this.gamePanel.BackgroundImage = global::doubleStuffed.Properties.Resources.game_board_bg;
             this.gamePanel.Controls.Add(this.TurnPicture);
-            this.gamePanel.Controls.Add(this.BS0x0);
             this.gamePanel.Controls.Add(this.BoardGridPicture);
             this.gamePanel.Controls.Add(this.menuStrip1);
             this.gamePanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -203,6 +201,7 @@ namespace doubleStuffed
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
             this.newGameToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameButton_Click);
             // 
             // mainMenuToolStripMenuItem
             // 
@@ -234,8 +233,8 @@ namespace doubleStuffed
             // gameplayHelpPanel
             // 
             this.gameplayHelpPanel.BackgroundImage = global::doubleStuffed.Properties.Resources.gameplay_help_menu;
-            this.gameplayHelpPanel.Controls.Add(this.rightHelpButton);
             this.gameplayHelpPanel.Controls.Add(this.ruleHelpPanel);
+            this.gameplayHelpPanel.Controls.Add(this.rightHelpButton);
             this.gameplayHelpPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gameplayHelpPanel.Location = new System.Drawing.Point(0, 0);
             this.gameplayHelpPanel.Name = "gameplayHelpPanel";
@@ -303,20 +302,6 @@ namespace doubleStuffed
             this.openRulesButton.TabIndex = 0;
             this.openRulesButton.TabStop = false;
             this.openRulesButton.Click += new System.EventHandler(this.openRulesButton_Click);
-            // 
-            // BS0x0
-            // 
-            this.BS0x0.BackColor = System.Drawing.Color.Transparent;
-            this.BS0x0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BS0x0.FlatAppearance.BorderSize = 0;
-            this.BS0x0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BS0x0.Image = global::doubleStuffed.Properties.Resources.white_token;
-            this.BS0x0.Location = new System.Drawing.Point(37, 144);
-            this.BS0x0.Name = "BS0x0";
-            this.BS0x0.Size = new System.Drawing.Size(45, 45);
-            this.BS0x0.TabIndex = 1;
-            this.BS0x0.Text = "boardSpace2";
-            this.BS0x0.UseVisualStyleBackColor = false;
             // 
             // GameInterface
             // 
@@ -399,7 +384,6 @@ namespace doubleStuffed
         private System.Windows.Forms.PictureBox quitButton;
         private System.Windows.Forms.Panel menuPanel;
         private System.Windows.Forms.Panel gamePanel;
-        private BoardSpace BS0x0;
         private System.Windows.Forms.PictureBox BoardGridPicture;
         private System.Windows.Forms.Panel gameplayHelpPanel;
         private System.Windows.Forms.PictureBox rightHelpButton;

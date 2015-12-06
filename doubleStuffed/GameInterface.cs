@@ -269,7 +269,7 @@ namespace doubleStuffed
                             buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.black_token;
                             break;
                         case 3:
-                            buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.left_button_black;
+                            buttonArray[row, column].BackgroundImage = global::doubleStuffed.Properties.Resources.game_board_bg_cropped;
                             break;
                     }
                 }
