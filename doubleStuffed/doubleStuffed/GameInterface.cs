@@ -54,6 +54,8 @@ namespace doubleStuffed
                 }
                 output+=Environment.NewLine;
             }
+            output += tempObj.activePlayer;
+
             System.IO.File.WriteAllText(directory + @"\save.txt", output);
         }
 
