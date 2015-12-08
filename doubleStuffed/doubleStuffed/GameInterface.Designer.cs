@@ -47,6 +47,7 @@ namespace doubleStuffed
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.endGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.winningPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TurnPicture = new System.Windows.Forms.PictureBox();
             this.BoardGridPicture = new System.Windows.Forms.PictureBox();
             this.gameplayHelpPanel = new System.Windows.Forms.Panel();
@@ -162,7 +163,8 @@ namespace doubleStuffed
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.p2TokenCountToolStripMenuItem,
-            this.p1TokenCountToolStripMenuItem});
+            this.p1TokenCountToolStripMenuItem,
+            this.winningPlayerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -232,6 +234,12 @@ namespace doubleStuffed
             this.TurnPicture.Size = new System.Drawing.Size(100, 500);
             this.TurnPicture.TabIndex = 3;
             this.TurnPicture.TabStop = false;
+            //
+            // WinningPlayerToolStripMenuItem
+            //
+            this.winningPlayerToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.winningPlayerToolStripMenuItem.Name = "winningPlayerToolStripMenuItem";
+            this.winningPlayerToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
             // 
             // BoardGridPicture
             // 
@@ -445,5 +453,6 @@ namespace doubleStuffed
         private System.Windows.Forms.ToolStripMenuItem endGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem p1TokenCountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem p2TokenCountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem winningPlayerToolStripMenuItem;
     }
 }

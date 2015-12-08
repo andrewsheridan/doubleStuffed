@@ -134,6 +134,7 @@ namespace doubleStuffed
             gamePanel.Visible = true;
             tempObj.InitGame();
             Init2DBoard();
+            winningPlayerToolStripMenuItem.Text = "";
             p1TokenCountToolStripMenuItem.Text = "White: " + tempObj.GameBoard.p1TokenCount;
             p2TokenCountToolStripMenuItem.Text = "Black: " + tempObj.GameBoard.p2TokenCount;
             RefreshScreen();
@@ -248,7 +249,7 @@ namespace doubleStuffed
 
         }
 
-       public void gameOverScreen(int winner)
+       public void gameOverScreen()
         {
             if (gameObj.GameEnd() == 2)
             {
@@ -256,6 +257,7 @@ namespace doubleStuffed
                 blackWinPanel.Visible = true;
                 blackWinPanel.BringToFront();
                 blackWinPanel.BackgroundImage = Properties.Resources.black_player_win_screen;
+                winningPlayerToolStripMenuItem.Text = "Black wins!";
             }
             else if (gameObj.GameEnd() == 1)
 
@@ -264,6 +266,7 @@ namespace doubleStuffed
                 blackWinPanel.Visible = true;
                 blackWinPanel.BringToFront();
                 blackWinPanel.BackgroundImage = Properties.Resources.white_player_win_screen;
+                winningPlayerToolStripMenuItem.Text = "White wins!";
             }
             else
             {
@@ -271,13 +274,12 @@ namespace doubleStuffed
                 blackWinPanel.Visible = true;
                 blackWinPanel.BringToFront();
                 blackWinPanel.BackgroundImage = Properties.Resources.black_player_win_screen;
+                winningPlayerToolStripMenuItem.Text = "It's a tie!";
             }
         } 
 
         private void BoardSpaceClicker(object sender, EventArgs e)
         {
-            if (tempObj.gameOver == true)
-                gameOverScreen(tempObj.GameEnd());
             
             BoardSpace ClickedSpace = (BoardSpace)sender;
             tempObj.Run(ClickedSpace.getY(), ClickedSpace.getX());
@@ -285,6 +287,21 @@ namespace doubleStuffed
             RefreshScreen();
             p1TokenCountToolStripMenuItem.Text = "White: " + tempObj.GameBoard.p1TokenCount;
             p2TokenCountToolStripMenuItem.Text = "Black: " + tempObj.GameBoard.p2TokenCount;
+            if (tempObj.gameOver == true)
+            {
+                if (tempObj.GameBoard.p1TokenCount > tempObj.GameBoard.p2TokenCount)
+                {
+                    winningPlayerToolStripMenuItem.Text = "White Wins!";
+                }
+                else if (tempObj.GameBoard.p1TokenCount < tempObj.GameBoard.p2TokenCount)
+                {
+                    winningPlayerToolStripMenuItem.Text = "Black Wins!";
+                }
+                else
+                {
+                    winningPlayerToolStripMenuItem.Text = "It's a Tie!";
+                }
+             }
         }
 
         private void RefreshScreen()
@@ -336,11 +353,23 @@ namespace doubleStuffed
         {
             tempObj.GameBoard.InitBoard();
             Init2DBoard();
+            winningPlayerToolStripMenuItem.Text = "";
         }
 
         private void endGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gameOverScreen(tempObj.GameEnd());
+          if (tempObj.GameBoard.p1TokenCount > tempObj.GameBoard.p2TokenCount)
+          {
+            winningPlayerToolStripMenuItem.Text = "White Wins!";
+          }
+          else if (tempObj.GameBoard.p1TokenCount < tempObj.GameBoard.p2TokenCount)
+          {
+                winningPlayerToolStripMenuItem.Text = "Black Wins!";
+          }
+          else
+          {
+                winningPlayerToolStripMenuItem.Text = "It's a Tie!";
+          }
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
