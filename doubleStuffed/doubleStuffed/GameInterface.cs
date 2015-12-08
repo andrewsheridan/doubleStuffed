@@ -132,6 +132,8 @@ namespace doubleStuffed
             gamePanel.Visible = true;
             tempObj.InitGame();
             Init2DBoard();
+            p1TokenCountToolStripMenuItem.Text = "White: " + tempObj.GameBoard.p1TokenCount;
+            p2TokenCountToolStripMenuItem.Text = "Black: " + tempObj.GameBoard.p2TokenCount;
             RefreshScreen();
         }
 
