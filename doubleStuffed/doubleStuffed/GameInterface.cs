@@ -13,8 +13,8 @@ namespace doubleStuffed
             tempObj = inEngine;
             InitializeComponent();
             Init2DBoard();
-            p1TokenCountToolStripMenuItem.Text = "Player 1: " + tempObj.GameBoard.p1TokenCount;
-            p2TokenCountToolStripMenuItem.Text = "Player 2: " + tempObj.GameBoard.p2TokenCount;
+            p1TokenCountToolStripMenuItem.Text = "White: " + tempObj.GameBoard.p1TokenCount;
+            p2TokenCountToolStripMenuItem.Text = "Black: " + tempObj.GameBoard.p2TokenCount;
         }
 
         /*****************************************************************
@@ -120,7 +120,7 @@ namespace doubleStuffed
         {
             menuPanel.Visible = false;
             gamePanel.Visible = true;
-            tempObj.GameBoard.InitBoard();
+            tempObj.InitGame();
             Init2DBoard();
             winningPlayerToolStripMenuItem.Text = "";
         }
@@ -331,6 +331,7 @@ namespace doubleStuffed
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tempObj.GameBoard.InitBoard();
+            gameObj.InitGame();
             Init2DBoard();
             winningPlayerToolStripMenuItem.Text = "";
         }
