@@ -102,6 +102,10 @@ namespace doubleStuffed
 
             menuPanel.Visible = false;
             gamePanel.Visible = true;
+
+            p1TokenCountToolStripMenuItem.Text = "White: " + tempObj.GameBoard.p1TokenCount;
+            p2TokenCountToolStripMenuItem.Text = "Black: " + tempObj.GameBoard.p2TokenCount;
+            RefreshScreen();
         }
 
         private void helpButton_MouseEnter(object sender, EventArgs e)
