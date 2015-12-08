@@ -75,9 +75,7 @@ namespace doubleStuffed
                 for (int i = 0; i < ssize.Length-1; i++)
                 {
                     tempObj.GameBoard.Spaces[counter, i] = Convert.ToInt32(ssize[i]);
-                    Console.Write(" " + Convert.ToInt32(ssize[i]));
                 }
-                Console.WriteLine("");
                 counter++;
             }
             file.Close();
@@ -94,13 +92,13 @@ namespace doubleStuffed
                 tempObj.activePlayer = 2;
             }
 
-            var loadScore1 = System.IO.File.ReadLines(directory + @"\save.txt").Skip(9).Take(1).First();
-            int Score1 = Convert.ToInt32(loadScore1); 
-            tempObj.GameBoard.p1TokenCount = Score1;
+            var white = System.IO.File.ReadLines(directory + @"\save.txt").Skip(9).Take(1).First();
+            int whiteScore = Convert.ToInt32(white); 
+            tempObj.GameBoard.p1TokenCount = whiteScore;
             
-            var loadScore2 = System.IO.File.ReadLines(directory + @"\save.txt").Skip(10).Take(1).First();
-            int Score2 = Convert.ToInt32(loadScore2);
-            tempObj.GameBoard.p2TokenCount = Score2;
+            var black = System.IO.File.ReadLines(directory + @"\save.txt").Skip(10).Take(1).First();
+            int blackScore = Convert.ToInt32(black);
+            tempObj.GameBoard.p2TokenCount = blackScore;
 
             menuPanel.Visible = false;
             gamePanel.Visible = true;
