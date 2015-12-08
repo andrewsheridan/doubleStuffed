@@ -365,9 +365,11 @@ namespace doubleStuffed
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "GameInterface";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Double Stuff";
+            this.Load += new System.EventHandler(this.GameInterface_Load);
             ((System.ComponentModel.ISupportInitialize)(this.newGameButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadGameButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.helpButton)).EndInit();

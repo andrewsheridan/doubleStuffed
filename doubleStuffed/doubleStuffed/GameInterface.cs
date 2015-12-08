@@ -381,6 +381,11 @@ namespace doubleStuffed
         {
 
         }
+
+        private void GameInterface_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     
