@@ -132,6 +132,7 @@ namespace doubleStuffed
             gamePanel.Visible = true;
             tempObj.InitGame();
             Init2DBoard();
+            RefreshScreen();
         }
 
         private void quitButton_Click(object sender, EventArgs e)
@@ -277,6 +278,13 @@ namespace doubleStuffed
             BoardSpace ClickedSpace = (BoardSpace)sender;
             tempObj.Run(ClickedSpace.getY(), ClickedSpace.getX());
             Console.WriteLine(tempObj.GameBoard.Spaces[ClickedSpace.getX(), ClickedSpace.getY()]);
+            RefreshScreen();
+            p1TokenCountToolStripMenuItem.Text = "White: " + tempObj.GameBoard.p1TokenCount;
+            p2TokenCountToolStripMenuItem.Text = "Black: " + tempObj.GameBoard.p2TokenCount;
+        }
+
+        private void RefreshScreen()
+        {
             if (tempObj.activePlayer == 1)
             {
                 TurnPicture.Image = global::doubleStuffed.Properties.Resources.white_turn;
@@ -309,10 +317,7 @@ namespace doubleStuffed
                     }
                 }
             }
-            p1TokenCountToolStripMenuItem.Text = "White: " + tempObj.GameBoard.p1TokenCount;
-            p2TokenCountToolStripMenuItem.Text = "Black: " + tempObj.GameBoard.p2TokenCount;
         }
-
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveGameButton_Click(sender, e);
