@@ -45,7 +45,7 @@ namespace doubleStuffed
             var directory = System.IO.Directory.GetCurrentDirectory();
 
             string output = "";
-
+           
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
@@ -54,7 +54,9 @@ namespace doubleStuffed
                 }
                 output+=Environment.NewLine;
             }
-            output += tempObj.activePlayer;
+            output += tempObj.activePlayer + Environment.NewLine;
+            output += tempObj.GameBoard.p1TokenCount + Environment.NewLine;
+            output += tempObj.GameBoard.p2TokenCount;
 
             System.IO.File.WriteAllText(directory + @"\save.txt", output);
         }
@@ -80,8 +82,8 @@ namespace doubleStuffed
             }
             file.Close();
 
-            string loadActivePlayer = System.IO.File.ReadLines(directory + @"\save.txt").Last();
-            int activePlayer = int.Parse(loadActivePlayer);
+            var loadActivePlayer = System.IO.File.ReadLines(directory + @"\save.txt").Skip(8).Take(1).First();
+            int activePlayer = Convert.ToInt32(loadActivePlayer);
 
             if (activePlayer == 1)
             {
@@ -91,7 +93,15 @@ namespace doubleStuffed
             {
                 tempObj.activePlayer = 2;
             }
+
+            var loadScore1 = System.IO.File.ReadLines(directory + @"\save.txt").Skip(9).Take(1).First();
+            int Score1 = Convert.ToInt32(loadScore1); 
+            tempObj.GameBoard.p1TokenCount = Score1;
             
+            var loadScore2 = System.IO.File.ReadLines(directory + @"\save.txt").Skip(10).Take(1).First();
+            int Score2 = Convert.ToInt32(loadScore2);
+            tempObj.GameBoard.p2TokenCount = Score2;
+
             menuPanel.Visible = false;
             gamePanel.Visible = true;
         }
