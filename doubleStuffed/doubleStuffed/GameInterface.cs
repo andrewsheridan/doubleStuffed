@@ -1,4 +1,5 @@
 ﻿using System;    ////GARRETT"S VERSION
+using System.Linq;
 using System.Windows.Forms;
 
 namespace doubleStuffed
@@ -42,7 +43,6 @@ namespace doubleStuffed
         private void saveGameButton_Click(object sender, EventArgs e)
         {
             var directory = System.IO.Directory.GetCurrentDirectory();
-            //System.IO.StreamWriter file = new System.IO.StreamWriter(@directory + "save.txt");
 
             string output = "";
 
@@ -65,13 +65,10 @@ namespace doubleStuffed
             System.IO.StreamReader file = new System.IO.StreamReader(directory + @"\save.txt");
             string line;
             int counter = 0;
+
             while ((line = file.ReadLine()) != null)
             {
-                if (counter == 0)
-                {
-                    //Active player = to int (line)
-                }
-
+                
                 string[] ssize = line.Split(null);
                 for (int i = 0; i < ssize.Length-1; i++)
                 {
@@ -81,9 +78,20 @@ namespace doubleStuffed
                 Console.WriteLine("");
                 counter++;
             }
-
             file.Close();
 
+            string loadActivePlayer = System.IO.File.ReadLines(directory + @"\save.txt").Last();
+            int activePlayer = int.Parse(loadActivePlayer);
+
+            if (activePlayer == 1)
+            {
+                tempObj.activePlayer = 1;
+            }
+            else
+            {
+                tempObj.activePlayer = 2;
+            }
+            
             menuPanel.Visible = false;
             gamePanel.Visible = true;
         }
