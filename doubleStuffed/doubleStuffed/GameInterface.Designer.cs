@@ -47,6 +47,8 @@ namespace doubleStuffed
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.endGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.p2TokenCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.p1TokenCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TurnPicture = new System.Windows.Forms.PictureBox();
             this.BoardGridPicture = new System.Windows.Forms.PictureBox();
             this.gameplayHelpPanel = new System.Windows.Forms.Panel();
@@ -56,8 +58,7 @@ namespace doubleStuffed
             this.openRulesButton = new System.Windows.Forms.PictureBox();
             this.blackWinPanel = new System.Windows.Forms.Panel();
             this.rightHelpButton = new System.Windows.Forms.PictureBox();
-            this.p1TokenCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.p2TokenCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.winningPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.newGameButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadGameButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.helpButton)).BeginInit();
@@ -162,7 +163,8 @@ namespace doubleStuffed
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.p2TokenCountToolStripMenuItem,
-            this.p1TokenCountToolStripMenuItem});
+            this.p1TokenCountToolStripMenuItem,
+            this.winningPlayerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -223,6 +225,20 @@ namespace doubleStuffed
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            // 
+            // p2TokenCountToolStripMenuItem
+            // 
+            this.p2TokenCountToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.p2TokenCountToolStripMenuItem.Name = "p2TokenCountToolStripMenuItem";
+            this.p2TokenCountToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.p2TokenCountToolStripMenuItem.Text = "Player 2 ";
+            // 
+            // p1TokenCountToolStripMenuItem
+            // 
+            this.p1TokenCountToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.p1TokenCountToolStripMenuItem.Name = "p1TokenCountToolStripMenuItem";
+            this.p1TokenCountToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.p1TokenCountToolStripMenuItem.Text = "Player 1 ";
             // 
             // TurnPicture
             // 
@@ -331,19 +347,11 @@ namespace doubleStuffed
             this.rightHelpButton.MouseEnter += new System.EventHandler(this.rightHelpButton_MouseEnter);
             this.rightHelpButton.MouseLeave += new System.EventHandler(this.rightHelpButton_MouseLeave);
             // 
-            // p1TokenCountToolStripMenuItem
+            // winningPlayerToolStripMenuItem
             // 
-            this.p1TokenCountToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.p1TokenCountToolStripMenuItem.Name = "p1TokenCountToolStripMenuItem";
-            this.p1TokenCountToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.p1TokenCountToolStripMenuItem.Text = "Player 1 ";
-            // 
-            // p2TokenCountToolStripMenuItem
-            // 
-            this.p2TokenCountToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.p2TokenCountToolStripMenuItem.Name = "p2TokenCountToolStripMenuItem";
-            this.p2TokenCountToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.p2TokenCountToolStripMenuItem.Text = "Player 2 ";
+            this.winningPlayerToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.winningPlayerToolStripMenuItem.Name = "winningPlayerToolStripMenuItem";
+            this.winningPlayerToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
             // 
             // GameInterface
             // 
@@ -445,5 +453,6 @@ namespace doubleStuffed
         private System.Windows.Forms.ToolStripMenuItem endGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem p1TokenCountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem p2TokenCountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem winningPlayerToolStripMenuItem;
     }
 }

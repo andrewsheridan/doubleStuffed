@@ -25,7 +25,6 @@ namespace doubleStuffed
             {
                 //Player 1 won
                 return 1; 
-
             }
             else if (GameBoard.p1TokenCount < GameBoard.p2TokenCount)
             {
